@@ -1,8 +1,5 @@
 #!/bin/bash
  
-eval "$(rbenv init -)"
-eval "$(rbenv init -)"
- 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -15,11 +12,16 @@ export PS2=" $ "
 alias ls="ls -l"
 alias ssh="ssh -l"
 alias ~="cd ~"
-alias dev="cd ~/Sandbox"
-alias api="cd ~/Sandbox/Kiwi/appengine/src/kiwi"
-alias web="cd ~/Sandbox/Kiwi/web"
-alias admin="cd ~/Sandbox/Kiwi/admin"
-alias beek="cd ~/Sandbox/Beek/beek_core"
+
+# Personal aliases
+alias dotfiles="cd ~/dev/config/dotfiles"
+alias dev="cd ~/dev"
+alias personal="cd ~/dev/personal"
+alias kiwi="cd ~/dev/kiwi"
+alias web="cd ~/dev/kiwi/web"
+alias admin="cd ~/dev/kiwi/admin"
+alias api="cd ~/dev/kiwi/appengine/src/kiwi"
+alias beek="cd ~/dev/clientes/beek/beek_core"
  
 ## Postgres Commands
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
@@ -63,19 +65,15 @@ alias reload='source ~/.bash_profile'
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/luismendoza/Dev/google-cloud-sdk/path.bash.inc'
+source '/Users/luismendoza/google-cloud-sdk/path.bash.inc'
 
 # The next line enables bash completion for gcloud.
-source '/Users/luismendoza/Dev/google-cloud-sdk/completion.bash.inc'
+source '/Users/luismendoza/google-cloud-sdk/completion.bash.inc'
 
 # Export ENV variables for Kiwi
 export KIWI_SMTP_USER="hola@usekiwi.com"
 export KIWI_SMTP_PASSWORD="[REDACTED]"
-export GOPATH="/Users/luismendoza/Sandbox/Kiwi/appengine"
-
-# Node
-export PATH="/usr/local/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export GOPATH="/Users/luismendoza/dev/kiwi/appengine"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
