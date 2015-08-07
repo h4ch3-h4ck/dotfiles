@@ -1,12 +1,15 @@
 {
   "color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
-  "font_size": 13,
+  "font_size": 12,
   "ignored_packages":
   [
     "Vintage"
   ],
+  "rulers":
+  [
+    100
+  ],
   "tab_size": 2,
   "theme": "Sodarized Dark 3.sublime-theme",
-  "translate_tabs_to_spaces": true,
-  "rulers": [100]
+  "translate_tabs_to_spaces": true
 }
