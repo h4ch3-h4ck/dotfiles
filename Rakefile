@@ -7,7 +7,7 @@ end
 namespace :vim do
   task :copy do
     sh 'cp ~/.vimrc.before vim/.vimrc.before'
-    sh 'cp ~/.vimrc.before vim/.vimrc.after'
-    sh 'cp ~/.vimrc.before vim/.gvimrc.after'
+    sh 'cp ~/.vimrc.after vim/.vimrc.after'
+    sh 'cp ~/.gvimrc.after vim/.gvimrc.after'
   end
 end
