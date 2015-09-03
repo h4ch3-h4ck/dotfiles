@@ -1,9 +1,1 @@
-set guioptions-=T
-
-color base16-tomorrow
-set guifont=Monaco:h12.00
-set cpoptions+=$
-
-" strip trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-
+let NERDTreeShowHidden=1
