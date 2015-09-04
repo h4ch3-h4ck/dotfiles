@@ -11,3 +11,11 @@ namespace :vim do
     sh 'cp ~/.gvimrc.after vim/.gvimrc.after'
   end
 end
+
+namespace :bash do
+  task :copy do
+    sh 'cp ~/.bash_profile bash/.bash_profile'
+  end
+end
+
+task :update => ['zsh:copy', 'vim:copy', 'bash:copy']
