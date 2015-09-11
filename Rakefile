@@ -18,6 +18,7 @@ namespace :vim do
   task :install do
     sh 'cp vim/.vimrc.before ~/.vimrc.before'
     sh 'cp vim/.vimrc.after ~/.vimrc.after'
+    sh 'cp vim/.gvimrc.before ~/.gvimrc.before'
     sh 'cp vim/.gvimrc.after ~/.gvimrc.after'
   end
 end

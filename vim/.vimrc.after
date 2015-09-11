@@ -1,9 +1,9 @@
 set guioptions-=T
 
 color molokai
-set guifont=Monaco:h12.00
+set guifont=Inconsolata\ for\ Powerline:h15.00
 set cpoptions+=$
+set laststatus=2
 
 " strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-
