@@ -1,12 +1,14 @@
 set guioptions-=T
 
-color molokai
+syntax enable
+set background=light
+color solarized
 set guifont=Inconsolata\ for\ Powerline:h15.00
 set cpoptions+=$
 set laststatus=2
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'solerized_light',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
