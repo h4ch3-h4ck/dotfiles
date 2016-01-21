@@ -2,3 +2,4 @@ let NERDTreeShowHidden=1
 
 " map leader key
 let mapleader = ","
+nnoremap <leader>d :set list!<cr>
