@@ -6,7 +6,7 @@ color solarized
 set guifont=Inconsolata\ for\ Powerline:h15.00
 set cpoptions+=$
 set laststatus=2
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:»\ ,eol:¬
 
 " strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
