@@ -1,7 +1,7 @@
 set guioptions-=T
 
 syntax enable
-set background=light
+set background=dark
 color solarized
 set guifont=Inconsolata\ for\ Powerline:h15.00
 set cpoptions+=$
