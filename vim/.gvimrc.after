@@ -2,7 +2,7 @@ set guioptions-=T
 
 syntax enable
 set background=dark
-color base16-eighties
+color base16-tomorrow
 set guifont=Inconsolata\ for\ Powerline:h15.00
 set cpoptions+=$
 set laststatus=2
