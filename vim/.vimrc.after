@@ -1,14 +1,29 @@
 set guioptions-=T
 
 syntax enable
-set background=light
-color solarized
+
+" set colorscheme
+set background=dark
+color base16-ocean
+
+" set font
 set guifont=Inconsolata\ for\ Powerline:h15.00
+
+" change word delimeter
 set cpoptions+=$
+
+" display status bar
 set laststatus=2
+
+" set invisible characters
 set listchars=tab:»\ ,eol:¬
+
+" jsx support
+let g:jsx_ext_required = 0
 
 " strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 map <C-m> :NERDTreeToggle<CR>
+
+
