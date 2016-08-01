@@ -7,7 +7,8 @@ set background=dark
 color base16-ocean
 
 " set font
-set guifont=Inconsolata\ for\ Powerline:h15.00
+set macligatures
+set guifont=Fira\ Code\ Light:h15
 
 " change word delimeter
 set cpoptions+=$
