@@ -122,6 +122,8 @@ alias mcweb="cd ~/dev/mercadoni/frontend"
 alias mcadmin="cd ~/dev/mercadoni/frontend-admin"
 alias mcmago="cd ~/dev/mercadoni/frontend-seller"
 alias locale="cd ~/dev/local-e/local-e"
+alias gbm="cd ~/dev/gbm"
+alias inv="cd ~/dev/gbm/Invesitify"
 
 # Git aliases
 alias commit="git commit -am"
