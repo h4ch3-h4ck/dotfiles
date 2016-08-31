@@ -1,0 +1,10 @@
+{
+    "editor.renderWhitespace": true,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 14,
+    "editor.fontLigatures": true,
+    "files.associations": {
+        "**/components/**/*.js": "javascriptreact",
+        "**/containers/**/*.js": "javascriptreact"
+    },
+}
