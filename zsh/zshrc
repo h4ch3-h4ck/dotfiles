@@ -125,7 +125,7 @@ alias mcmago="cd ~/dev/mercadoni/frontend-seller"
 alias locale="cd ~/dev/local-e/local-e"
 alias gbm="cd ~/dev/gbm"
 alias inv="cd ~/dev/gbm/Investify"
-alias invhome="cd ~/dev/gbm/Investify/web/src/Investify"
+alias invhome="cd ~/dev/gbm/Investify/home/src/Investify"
 alias invweb="cd ~/dev/gbm/Investify/web/src/GBM.Investify.App.Web"
 
 # Git aliases
