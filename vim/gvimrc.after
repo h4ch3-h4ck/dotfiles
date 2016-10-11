@@ -3,8 +3,7 @@ set guioptions-=T
 syntax enable
 
 " set colorscheme
-set background=dark
-color base16-ocean
+color desert
 
 " set font
 set macligatures

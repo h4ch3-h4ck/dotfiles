@@ -3,11 +3,11 @@ set guioptions-=T
 syntax enable
 
 " set colorscheme
-set background=dark
-color base16-ocean
+color desert
 
 " set font
-set guifont=Inconsolata\ for\ Powerline:h15.00
+set macligatures
+set guifont=Fira\ Code\ Light:h15
 
 " change word delimeter
 set cpoptions+=$

@@ -8,7 +8,7 @@ export ZSH=/Users/luis/.oh-my-zsh
 ZSH_THEME="honukai"
 
 # Plugins
-plugins=(rails git ember-cli)
+plugins=(rails git ember-cli tmux)
 
 #Load Rbenv
 eval "$(rbenv init -)"
