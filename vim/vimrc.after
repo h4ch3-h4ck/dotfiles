@@ -6,7 +6,6 @@ syntax enable
 color desert
 
 " set font
-set macligatures
 set guifont=Fira\ Code\ Light:h15
 
 " change word delimeter
@@ -18,11 +17,15 @@ set laststatus=2
 " set invisible characters
 set listchars=tab:»\ ,eol:¬
 
-" jsx support
-let g:jsx_ext_required = 0
-
 " strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" jsx & jsdoc support
+let g:jsx_ext_required = 0
+let g:javascript_plugin_jsdoc = 1
+
+" airline theme
+let g:airline_theme='wombat'
 
 map <C-m> :NERDTreeToggle<CR>
 

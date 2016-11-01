@@ -21,8 +21,12 @@ set listchars=tab:»\ ,eol:¬
 " strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" jsx support
+" jsx & jsdoc support
 let g:jsx_ext_required = 0
+let g:javascript_plugin_jsdoc = 1
+
+" airline theme
+let g:airline_theme='wombat'
 
 map <C-m> :NERDTreeToggle<CR>
 
