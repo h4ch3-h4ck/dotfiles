@@ -1,6 +1,7 @@
 namespace :zsh do
   task :install do
     sh 'cp zsh/zshrc ~/.zshrc'
+    sh 'cp zsh/zshrc.alias ~/.zshrc.alias'
   end
 end
 
@@ -13,12 +14,6 @@ namespace :vim do
   end
 end
 
-namespace :bash do
-  task :install do
-    sh 'cp bash/bash_profile ~/.bash_profile'
-  end
-end
-
 namespace :atom do
   task :install do
     sh 'cp atom/keymap.cson ~/.atom/keymap.cson'
@@ -26,4 +21,12 @@ namespace :atom do
   end
 end
 
-task :install => ['zsh:install', 'vim:install', 'bash:install', 'atom:install']
+namespace :vscode do
+  task :install do
+    sh 'cp vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json'
+  end
+end
+
+
+
+task :install => ['zsh:install', 'vim:install', 'atom:install', 'vscode:install']

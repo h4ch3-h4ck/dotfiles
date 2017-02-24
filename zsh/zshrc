@@ -49,92 +49,7 @@ at() {
   fi
 }
 
-## Postgres Commands
-alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-alias pgstatus="pg_ctl -D /usr/local/var/postgres status"
-
-## MySql Commands
-alias msqlstart="mysql.server start"
-alias msqlstop="mysql.server stop"
-alias msqlstatus="mysql.server status"
-alias kiwidb="mysql -uroot kiwi_dev"
-
-## Solr Commands
-alias solrstart="bundle exec sunspot-solr start"
-alias solrrun="bundle exec sunspot-solr run"
-alias solrstop="bundle exec sunspot-solr stop"
-
-# MongoDB Commands
-alias mongostart="mongod --config /usr/local/etc/mongod.conf"
-
-# Redis Commands
-alias redistart="redis-server /usr/local/etc/redis.conf"
-
-# Docker
-alias dm="docker-machine"
-
-## Rails
-alias be="bundle exec"
-alias bi="bundle install"
-alias rg="rails g"
-alias rs="rails s"
-alias rc="rails c"
-alias rn="rails new"
-alias rd="rails dbconsole"
-alias rp="rails plugin"
-alias ra="rails application"
-alias rd="rails destroy"
-alias prythis="pry -r ./config/environment"
-alias serve="foreman start web"
-
-## rake
-alias rt="rake test"
-alias rtu="rake test:units"
-alias rtf="rake test:functionals"
-alias rti="rake test:integration"
-alias rro="rake routes"
-alias rdbm="rake db:migrate"
-alias rdbrb="rake db:rollback"
-alias rdbs="rake db:seed"
-alias rdbr="rake db:reset"
-alias ri="rake install"
-alias ru="rake update"
-alias rr="rake run"
-
-## Utility Aliases
-alias ~="cd ~"
-alias flushDNS="dscacheutil -flushcache"
-alias reload="source ~/.zshrc"
-alias k="clear"
-
-# Personal aliases
-alias dotfiles="cd ~/dev/config/dotfiles"
-alias dev="cd ~/dev"
-alias config="cd ~/dev/config"
-alias labs="cd ~/dev/labs"
-alias talks="cd ~/dev/talks"
-alias journal="cd ~/dev/personal/journal"
-alias blog="cd ~/dev/personal/mendoza.io"
-alias personal="cd ~/dev/personal"
-alias clientes="cd ~/dev/clientes"
-alias kiwi="cd ~/dev/kiwi"
-alias mc="cd ~/dev/mercadoni"
-alias mcapi="cd ~/dev/mercadoni/api"
-alias mcweb="cd ~/dev/mercadoni/frontend"
-alias mcadmin="cd ~/dev/mercadoni/frontend-admin"
-alias mcmago="cd ~/dev/mercadoni/frontend-seller"
-alias locale="cd ~/dev/local-e/local-e"
-alias gbm="cd ~/dev/gbm"
-alias inv="cd ~/dev/gbm/Investify/investify"
-
-# Git aliases
-alias commit="git commit -am"
-alias c="echo 'git commit -m' && git commit -m"
-alias s="echo 'git stash' && git stash"
-alias a="echo 'git add .' && git add ."
-
-# Git functions
+# Git Logs
 gitlog () {
   if (( ! $# )); then
     git log -15 --oneline --decorate --color --graph | cat
@@ -142,28 +57,6 @@ gitlog () {
     git log -$1 --oneline --decorate --color --graph | cat
   fi
 }
-
-# Ember aliases
-alias ets="ember test --server"
-
-# Work Aliases
-alias rdeploy="rake deploy"
-alias rsdeploy="rake stage:deploy"
-alias rkdeploy="rake kiwi:deploy"
-
-# NPM and Bower
-alias npmi="npm install"
-alias bwi="bower install"
-alias npmb="npm install && bower install"
-
-# Docker
-alias drm='docker rm'
-alias drmi='docker rmi'
-alias dps='docker ps'
-alias dpsa='docker ps -a'
-alias di='docker images'
-alias dia='docker images -a'
-alias drmia='docker rmi $(docker images -aq -f "dangling=true")'
 
 # NVM
 export NVM_DIR="/Users/luis/.nvm"
@@ -184,3 +77,6 @@ load-nvmrc
 
 # Load env variables
 source ~/.env
+
+# Load aliases
+source ~/.zshrc.alias
