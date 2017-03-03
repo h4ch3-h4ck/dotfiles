@@ -75,7 +75,7 @@ alias npmb="npm install && bower install"
 
 # Yarn
 alias ys='yarn start'
-alias ys='yarn install'
+alias yi='yarn install'
 alias yt='yarn test'
 alias ytw='yarn test:watch'
 
