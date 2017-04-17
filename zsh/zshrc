@@ -14,7 +14,7 @@ plugins=(rails git ember-cli docker docker-compose)
 eval "$(rbenv init -)"
 
 # User configuration
-export PATH="$PATH:/usr/local/go/bin:/Users/luis/google-cloud-sdk/go_appengine:/usr/local/share/dotnet:/Users/luis/dev/kiwi/appengine/bin:/Users/luis/google-cloud-sdk/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luis/Library/Python/2.7/bin"
+export PATH="$PATH:/Users/luis/dev/go/bin:/usr/local/go/bin:/Users/luis/google-cloud-sdk/go_appengine:/usr/local/share/dotnet:/Users/luis/dev/kiwi/appengine/bin:/Users/luis/google-cloud-sdk/bin:/usr/local/heroku/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luis/Library/Python/2.7/bin"
 
 export GOPATH="/Users/luis/dev/go"
 
