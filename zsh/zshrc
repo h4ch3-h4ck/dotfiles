@@ -80,5 +80,8 @@ load-nvmrc
 # Load env variables
 source ~/.env
 
-# Load aliases
+# Load aliases
 source ~/.zshrc.alias
+
+# Load aliases
+source ~/.zshrc.secure
