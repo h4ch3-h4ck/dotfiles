@@ -15,7 +15,16 @@
     "editor.renderIndentGuides": true,
     "vsicons.presets.angular": false,
     "files.associations": {
-      "*.js": "javascript"
+      "*.js": "javascript",
+      "*.Rmd": "markdown"
     },
-    "workbench.welcome.enabled": true
+    "workbench.welcome.enabled": true,
+    "line-counter.excludes": [
+        "**/.vscode/**",
+        "**/node_modules/**"
+    ],
+    "workbench.colorTheme": "Dracula",
+    "workbench.iconTheme": "vscode-icons",
+    "vsicons.projectDetection.autoReload": true,
+    "go.formatTool": "gofmt"
   }
