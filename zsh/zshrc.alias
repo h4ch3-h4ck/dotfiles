@@ -90,6 +90,11 @@ alias drmia='docker rmi $(docker images -aq -f "dangling=true")'
 alias drma='docker rm $(docker ps -a -q)'
 alias dsa='docker stop $(docker ps -a -q)'
 
+# Docker Compose
+alias dcdev='docker-compose -f docker-compose.dev.yml'
+alias dcdevup='docker-compose -f docker-compose.dev.yml up'
+alias dcdevrun='docker-compose -f docker-compose.dev.yml run'
+
 # Personal aliases
 alias dotfiles="cd ~/dev/config/dotfiles"
 alias dev="cd ~/dev"
