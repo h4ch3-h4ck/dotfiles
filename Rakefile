@@ -27,6 +27,4 @@ namespace :vscode do
   end
 end
 
-
-
 task :install => ['zsh:install', 'vim:install', 'atom:install', 'vscode:install']

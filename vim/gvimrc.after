@@ -3,7 +3,7 @@ set guioptions-=T
 syntax enable
 
 " set colorscheme
-color desert
+color dracula
 
 " set font
 set macligatures

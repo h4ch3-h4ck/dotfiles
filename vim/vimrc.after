@@ -3,7 +3,7 @@ set guioptions-=T
 syntax enable
 
 " set colorscheme
-color desert
+color dracula
 
 " set font
 set guifont=Fira\ Code\ Light:h15
@@ -25,7 +25,7 @@ let g:jsx_ext_required = 0
 let g:javascript_plugin_jsdoc = 1
 
 " airline theme
-let g:airline_theme='wombat'
+let g:airline_theme='papercolor'
 
 map <C-m> :NERDTreeToggle<CR>
 
