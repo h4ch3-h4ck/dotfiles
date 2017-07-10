@@ -28,5 +28,9 @@ let g:javascript_plugin_jsdoc = 1
 " airline theme
 let g:airline_theme='papercolor'
 
+" set relative numbers automatically
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 map <C-m> :NERDTreeToggle<CR>
 
