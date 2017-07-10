@@ -23,11 +23,14 @@ autocmd BufWritePre * :%s/\s\+$//e
 " jsx & jsdoc support
 let g:jsx_ext_required = 0
 let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+let g:syntastic_javascript_checkers = ['eslint']
 
 " airline theme
 let g:airline_theme='papercolor'
 
 " set relative numbers automatically
+:set relativenumber
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
