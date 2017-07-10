@@ -26,7 +26,7 @@ let g:jsx_ext_required = 0
 let g:javascript_plugin_jsdoc = 1
 
 " airline theme
-let g:airline_theme='wombat'
+let g:airline_theme='papercolor'
 
 map <C-m> :NERDTreeToggle<CR>
 
