@@ -20,6 +20,13 @@ set listchars=tab:»\ ,eol:¬
 " set foldmethod
 set foldmethod=syntax
 
+" ctrlp
+set wildignore+=*/node_modules/*,*/.git/*,*.swp,*/build/*,*/dist/*
+
+" change cursor in insert mode
+:autocmd InsertEnter * set cul
+:autocmd InsertLeave * set nocul
+
 " strip trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 

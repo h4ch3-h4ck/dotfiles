@@ -29,9 +29,9 @@ export EDITOR="vim"
 # Run MacVim
 e() {
   if ((! $#)); then
-    vim . && echo "vim ."
+    mvim . && echo "mvim ."
   else
-    vim $1 && echo " vim" $1
+    mvim $1 && echo " mvim" $1
   fi
 }
 
