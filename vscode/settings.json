@@ -9,7 +9,10 @@
       "**/.git": true,
       "**/.svn": true,
       "**/.hg": true,
-      "**/.DS_Store": true
+      "**/.DS_Store": true,
+      "dist/**": true,
+      "coverage/**": true,
+      "build/**": true
     },
     "javascript.validate.enable": false,
     "editor.renderIndentGuides": true,
