@@ -8,7 +8,7 @@ export ZSH=/Users/luis/.oh-my-zsh
 ZSH_THEME="luismendozamx"
 
 # Plugins
-plugins=(rails git ember-cli docker docker-compose)
+plugins=(rails git docker docker-compose)
 
 #Load Rbenv
 eval "$(rbenv init -)"
