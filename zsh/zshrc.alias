@@ -52,7 +52,6 @@ alias rr="rake run"
 alias ~="cd ~"
 alias flushDNS="dscacheutil -flushcache"
 alias reload="source ~/.zshrc"
-alias k="clear"
 
 # Git aliases
 alias commit="git commit -am"
