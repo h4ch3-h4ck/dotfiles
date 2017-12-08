@@ -8,7 +8,7 @@ export ZSH=/Users/luis/.oh-my-zsh
 ZSH_THEME="luismendozamx"
 
 # Plugins
-plugins=(rails git docker docker-compose)
+plugins=(rails git docker docker-compose tmuxinator kops kubectl)
 
 #Load Rbenv
 eval "$(rbenv init -)"
@@ -83,15 +83,6 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
-
-# Autocompletion
-if [ $commands[kubectl] ]; then
-  source <(kubectl completion zsh)
-fi
-
-if [ $commands[helm] ]; then
-  source <(helm completion zsh)
-fi
 
 # Load env variables
 source ~/.env
