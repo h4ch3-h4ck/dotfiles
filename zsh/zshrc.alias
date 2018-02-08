@@ -109,3 +109,5 @@ alias mc="cd ~/dev/mercadoni"
 alias locale="cd ~/dev/local-e/local-e"
 alias gbm="cd ~/dev/gbm"
 alias inv="cd ~/dev/gbm/investify"
+alias al="cd ~/dev/aliada"
+
