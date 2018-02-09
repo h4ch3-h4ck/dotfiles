@@ -15,13 +15,17 @@ set cpoptions+=$
 set laststatus=2
 
 " set invisible characters
-set listchars=tab:»\ ,eol:¬
+set listchars=trail:·,eol:↲,tab:▸\
 
 " set foldmethod
 set foldmethod=syntax
 
 " ctrlp
 set wildignore+=*/node_modules/*,*/.git/*,*.swp,*/build/*,*/dist/*
+
+" sane defaults for panes
+set splitbelow
+set splitright
 
 " change cursor in insert mode
 :autocmd InsertEnter * set cul
@@ -46,5 +50,4 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 map <C-m> :NERDTreeToggle<CR>
-
 
