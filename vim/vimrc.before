@@ -3,3 +3,11 @@ let NERDTreeShowHidden=1
 " map leader key
 let mapleader = ","
 nnoremap <leader>d :set list!<cr>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-H> <C-W><C-H>
+
+map <leader>rc :RunItermSpringSpec<cr>
+map <leader>rl :RunItermSpringSpecLine<cr>
+
