@@ -29,5 +29,8 @@
     "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "vscode-icons",
     "vsicons.projectDetection.autoReload": true,
-    "go.formatTool": "gofmt"
+    "go.formatTool": "gofmt",
+    "ruby.lint": {
+        "rubocop": true
+    }
   }
