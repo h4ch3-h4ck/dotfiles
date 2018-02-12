@@ -41,10 +41,5 @@ let g:syntastic_go_checkers = ['golint', 'go vet']
 " airline theme
 let g:airline_theme='molokai'
 
-" set relative numbers automatically
-:set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-
 map <C-m> :NERDTreeToggle<CR>
 

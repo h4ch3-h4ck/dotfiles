@@ -42,11 +42,6 @@ let g:syntastic_go_checkers = ['golint', 'go vet']
 " airline theme
 let g:airline_theme='molokai'
 
-" set relative numbers automatically
-:set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-
 " Save when focus lost
 :au FocusLost * silent! wa!
 " Save when changing buffer
