@@ -40,7 +40,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_go_checkers = ['golint', 'go vet']
 
 " airline theme
-let g:airline_theme='papercolor'
+let g:airline_theme='molokai'
 
 " set relative numbers automatically
 :set relativenumber
@@ -51,6 +51,18 @@ autocmd InsertLeave * :set relativenumber
 :au FocusLost * silent! wa!
 " Save when changing buffer
 :au BufLeave * silent! wa!
+
+"" The Silver Searcher
+if executable('ag')
+ " Use ag over grep
+ set grepprg=ag\ --nogroup\ --nocolor
+
+ " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+ let g:ctrlp_user_command = "ag %s -l --nocolor -g ''| awk '{ print length, $0 }' | sort -n | awk -F' ' '{print $2}'"
+
+ " " ag is fast enough that CtrlP doesn't need to cache
+ let g:ctrlp_use_caching = 0
+endif
 
 map <C-m> :NERDTreeToggle<CR>
 

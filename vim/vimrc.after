@@ -2,8 +2,8 @@ set guioptions-=T
 
 syntax enable
 
-" set colorscheme
 color dracula
+" set colorscheme
 
 " set font
 set guifont=Fira\ Code\ Light:h15
@@ -39,7 +39,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_go_checkers = ['golint', 'go vet']
 
 " airline theme
-let g:airline_theme='papercolor'
+let g:airline_theme='molokai'
 
 " set relative numbers automatically
 :set relativenumber
