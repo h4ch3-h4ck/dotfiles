@@ -84,6 +84,9 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
+# Load pyenv
+eval "$(pyenv init -)"
+
 # Load env variables
 source ~/.env
 
