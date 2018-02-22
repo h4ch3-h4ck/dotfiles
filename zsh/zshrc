@@ -14,7 +14,7 @@ plugins=(rails git dotenv docker docker-compose tmuxinator kops kubectl)
 eval "$(rbenv init -)"
 
 # User configuration
-export PATH="$PATH:/Users/luis/dev/go/bin:/usr/local/go/bin:/usr/local/share/dotnet:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luis/Library/Python/2.7/bin"
+export PATH="$PATH:/Users/luis/dev/go/bin:/usr/local/go/bin:/usr/local/share/dotnet:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luis/.local/bin"
 
 export GOPATH="/Users/luis/dev/go"
 
