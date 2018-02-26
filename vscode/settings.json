@@ -1,36 +1,31 @@
 {
-    "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 13,
-    "editor.fontLigatures": true,
-    "editor.tabSize": 2,
-    "editor.renderWhitespace": "all",
-    "vsicons.dontShowNewVersionMessage": true,
-    "files.exclude": {
-      "**/.git": true,
-      "**/.svn": true,
-      "**/.hg": true,
-      "**/.DS_Store": true,
-      "dist/**": true,
-      "coverage/**": true,
-      "build/**": true
-    },
-    "javascript.validate.enable": false,
-    "editor.renderIndentGuides": true,
-    "vsicons.presets.angular": false,
-    "files.associations": {
-      "*.js": "javascript",
-      "*.Rmd": "markdown"
-    },
-    "workbench.welcome.enabled": true,
-    "line-counter.excludes": [
-        "**/.vscode/**",
-        "**/node_modules/**"
-    ],
-    "workbench.colorTheme": "Dracula",
-    "workbench.iconTheme": "vscode-icons",
-    "vsicons.projectDetection.autoReload": true,
-    "go.formatTool": "gofmt",
-    "ruby.lint": {
-        "rubocop": true
-    }
-  }
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    80
+  ],
+  "editor.renderIndentGuides": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true
+  },
+  "files.associations": {
+    "*.js": "javascript",
+    "*.Rmd": "markdown"
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsicons.projectDetection.autoReload": true,
+  "javascript.validate.enable": false,
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "vscode-icons",
+  "go.formatTool": "gofmt",
+  "ruby.lint": {
+      "rubocop": true
+  },
+  "ruby.specCommand": "spring rspec"
+}
