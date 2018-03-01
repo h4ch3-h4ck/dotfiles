@@ -18,6 +18,9 @@
     "*.js": "javascript",
     "*.Rmd": "markdown"
   },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
   "vsicons.dontShowNewVersionMessage": true,
   "vsicons.projectDetection.autoReload": true,
   "javascript.validate.enable": false,
