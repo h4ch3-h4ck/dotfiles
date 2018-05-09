@@ -24,6 +24,7 @@
   "vsicons.dontShowNewVersionMessage": true,
   "vsicons.projectDetection.autoReload": true,
   "javascript.validate.enable": false,
+  "flow.useNPMPackagedFlow": true,
   "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "vscode-icons",
   "go.formatTool": "gofmt",
