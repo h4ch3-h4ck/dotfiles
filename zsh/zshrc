@@ -95,3 +95,7 @@ source ~/.zshrc.alias
 
 # Load aliases
 source ~/.zshrc.secure
+
+# SDK
+export SDKMAN_DIR="/Users/luis/.sdkman"
+[[ -s "/Users/luis/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/luis/.sdkman/bin/sdkman-init.sh"
