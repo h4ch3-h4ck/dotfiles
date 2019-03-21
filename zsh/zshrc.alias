@@ -32,7 +32,6 @@ alias rp="rails plugin"
 alias ra="rails application"
 alias rd="rails destroy"
 alias prythis="pry -r ./config/environment"
-alias serve="foreman start web"
 
 ## rake
 alias rt="rake test"
@@ -109,5 +108,7 @@ alias mc="cd ~/dev/mercadoni"
 alias locale="cd ~/dev/local-e/local-e"
 alias gbm="cd ~/dev/gbm"
 alias inv="cd ~/dev/gbm/investify"
-alias al="cd ~/dev/aliada"
+alias tm="cd ~/dev/tandem"
+
+alias goserve="osascript ~/dev/mac/server.scpt"
 
