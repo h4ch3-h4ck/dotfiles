@@ -109,6 +109,8 @@ alias locale="cd ~/dev/local-e/local-e"
 alias gbm="cd ~/dev/gbm"
 alias inv="cd ~/dev/gbm/investify"
 alias tm="cd ~/dev/tandem"
+alias hg="cd ~/dev/higo"
+alias ly="cd ~/dev/lyft"
 
 alias goserve="osascript ~/dev/mac/server.scpt"
 

@@ -8,7 +8,7 @@ export ZSH=/Users/luis/.oh-my-zsh
 ZSH_THEME="luismendozamx"
 
 # Plugins
-plugins=(rails git dotenv docker docker-compose tmuxinator kops kubectl)
+plugins=(git dotenv docker docker-compose tmuxinator kops kubectl)
 
 #Load Rbenv
 eval "$(rbenv init -)"
