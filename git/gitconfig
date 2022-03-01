@@ -1,2 +1,5 @@
+[user]
+	name = Luis Mendoza
+	email = luis@mendoza.io
 [pull]
 	rebase = true

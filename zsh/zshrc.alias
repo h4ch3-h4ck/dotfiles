@@ -111,6 +111,11 @@ alias inv="cd ~/dev/gbm/investify"
 alias tm="cd ~/dev/tandem"
 alias hg="cd ~/dev/higo"
 alias ly="cd ~/dev/lyft"
+alias beek="cd ~/dev/beek"
 
-alias goserve="osascript ~/dev/mac/server.scpt"
+# Mac M1 Aliases
+alias m1="arch -x86_64"
+alias ibrew="arch -x86_64 /usr/local/bin/brew"
+# M1 Shit
+export RUBY_CFLAGS="-Wno-error=implicit-function-declaration"
 

@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/luis/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -10,13 +10,10 @@ ZSH_THEME="luismendozamx"
 # Plugins
 plugins=(git dotenv docker docker-compose tmuxinator kops kubectl)
 
-#Load Rbenv
-eval "$(rbenv init -)"
-
 # User configuration
-export PATH="$PATH:/Users/luis/dev/go/bin:/usr/local/go/bin:/usr/local/share/dotnet:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luis/.local/bin"
+export PATH="$PATH:$HOME/dev/go/bin:/usr/local/go/bin:/usr/local/share/dotnet:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin"
 
-export GOPATH="/Users/luis/dev/go"
+export GOPATH="$HOME/dev/go"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
@@ -38,15 +35,6 @@ e() {
   fi
 }
 
-# Run Atom
-at() {
-  if ((! $#)); then
-    atom . && echo "atom ."
-  else
-    atom $1 && echo " atom" $1
-  fi
-}
-
 # Git Logs
 gitlog () {
   if (( ! $# )); then
@@ -64,13 +52,22 @@ jhome () {
   java -version
 }
 
+# Load brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+#Load Rbenv
+eval "$(rbenv init -)"
+
 # Tree
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
+# Load pyenv
+eval "$(pyenv init -)"
+
 # NVM
-export NVM_DIR="/Users/luis/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion # nvm bash complition
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -84,9 +81,6 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# Load pyenv
-eval "$(pyenv init -)"
-
 # Load env variables
 source ~/.env
 
@@ -97,5 +91,15 @@ source ~/.zshrc.alias
 source ~/.zshrc.secure
 
 # SDK
-export SDKMAN_DIR="/Users/luis/.sdkman"
-[[ -s "/Users/luis/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/luis/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/dev/config/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/dev/config/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/dev/config/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/dev/config/google-cloud-sdk/completion.zsh.inc"; fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Load asdf
+. $(ibrew --prefix asdf)/asdf.sh
