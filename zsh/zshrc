@@ -66,8 +66,8 @@ eval "$(pyenv init -)"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -99,7 +99,6 @@ if [ -f "$HOME/dev/config/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/dev/co
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/dev/config/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/dev/config/google-cloud-sdk/completion.zsh.inc"; fi
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Load asdf
 . $(ibrew --prefix asdf)/asdf.sh
