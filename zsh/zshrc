@@ -95,6 +95,3 @@ source ~/.zshrc.secure
 
 # The next line enables shell command completion for gcloud.
 . "$HOME/dev/config/google-cloud-sdk/completion.zsh.inc"
-
-# Load asdf
-. $(ibrew --prefix asdf)/asdf.sh
