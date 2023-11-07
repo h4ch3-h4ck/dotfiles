@@ -11,9 +11,13 @@ ZSH_THEME="luismendozamx"
 plugins=(git dotenv docker docker-compose tmuxinator kops kubectl)
 
 # User configuration
-export PATH="$PATH:$HOME/dev/go/bin:/usr/local/go/bin:/usr/local/share/dotnet:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin"
+export PATH="$PATH:/usr/local/share/dotnet:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.local/bin"
 
+# Go Env Variables
 export GOPATH="$HOME/dev/go"
+export GOBIN="$GOPATH/bin"
+export GOPRIVATE=github.com/beek,github.com/tamber
+export PATH="$GOBIN:/opt/homebrew/opt/go@1.19/bin:$PATH"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator
