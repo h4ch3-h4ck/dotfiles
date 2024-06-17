@@ -48,6 +48,7 @@ alias ru="rake update"
 alias rr="rake run"
 
 ## Utility Aliases
+alias z="zellij"
 alias ~="cd ~"
 alias flushDNS="dscacheutil -flushcache"
 alias reload="source ~/.zshrc"
@@ -112,6 +113,10 @@ alias tm="cd ~/dev/tandem"
 alias hg="cd ~/dev/higo"
 alias ly="cd ~/dev/lyft"
 alias beek="cd ~/dev/beek"
+alias ve="cd ~/dev/veinte"
+
+# kubectl
+alias kveinte="kubectl config use-context do-nyc1-veinte-001"
 
 # Mac M1 Aliases
 alias m1="arch -x86_64"
