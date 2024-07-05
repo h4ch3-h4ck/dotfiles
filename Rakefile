@@ -1,7 +1,6 @@
 namespace :zsh do
   task :install do
     sh 'cp zsh/zshrc ~/.zshrc'
-    sh 'cp zsh/zshrc.alias ~/.zshrc.alias'
   end
 end
 
