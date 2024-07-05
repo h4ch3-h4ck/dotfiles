@@ -1,0 +1,58 @@
+layout {
+  tab name="www" {
+    pane split_direction="vertical" {
+      pane {
+        cwd "~/dev/beek/www"
+      }
+      pane {
+        cwd "~/dev/beek/www"
+      }
+    }
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+  }
+  tab name="player-www" {
+    pane split_direction="vertical" {
+      pane {
+        cwd "~/dev/beek/player-www"
+      }
+      pane {
+        cwd "~/dev/beek/player-www"
+      }
+    }
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+  }
+  tab name="api" {
+    pane split_direction="vertical" {
+      pane {
+        cwd "~/dev/beek/api"
+        command "~/dev/config/dotfiles/zellij/init.sh"
+        focus true
+      }
+      pane split_direction="horizontal" {
+        pane {
+          cwd "~/dev/beek/api"
+          command "~/dev/config/dotfiles/zellij/init.sh"
+        }
+        pane {
+          cwd "~/dev/beek/api"
+          command "~/dev/config/dotfiles/zellij/init.sh"
+        }
+        pane {
+          cwd "~/dev/beek/api"
+          command "~/dev/config/dotfiles/zellij/init.sh"
+        }
+        pane {
+          cwd "~/dev/beek/api"
+          command "~/dev/config/dotfiles/zellij/init.sh"
+        }
+      }
+    }
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+  }
+}

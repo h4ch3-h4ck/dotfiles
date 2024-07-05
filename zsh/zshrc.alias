@@ -48,10 +48,14 @@ alias ru="rake update"
 alias rr="rake run"
 
 ## Utility Aliases
-alias z="zellij"
 alias ~="cd ~"
 alias flushDNS="dscacheutil -flushcache"
 alias reload="source ~/.zshrc"
+
+# Zellij
+alias z="zellij"
+alias zbeek="z --layout ~/dev/config/dotfiles/zellij/layouts/beek-rails.kdl"
+alias zveinte="z --layout ~/dev/config/dotfiles/zellij/layouts/veinte-rails.kdl"
 
 # Git aliases
 alias commit="git commit -am"
