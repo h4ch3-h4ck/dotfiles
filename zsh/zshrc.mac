@@ -98,5 +98,5 @@ source ~/.zshrc.secure
 
 # fortune cowsay only if zellij is not running
 if [[ ! $ZELLIJ ]]; then
-  fortune | cowsay
+  fortune | cowsay -f $(ls /opt/homebrew/Cellar/cowsay/3.04_1/share/cows | gshuf -n 1)
 fi
