@@ -95,3 +95,8 @@ source ~/.zshrc.secure
 . "$HOME/dev/config/google-cloud-sdk/completion.zsh.inc"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# fortune cowsay only if zellij is not running
+if [[ ! $ZELLIJ ]]; then
+  fortune | cowsay
+fi
