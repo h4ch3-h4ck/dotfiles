@@ -12,6 +12,7 @@ alias reload="source ~/.zshrc"
 # Zellij
 alias z="zellij"
 alias zveinte="z --layout ~/dev/config/dotfiles/zellij/layouts/veinte-rails-linux.kdl"
+alias zbeek="z --layout ~/dev/config/dotfiles/zellij/layouts/beek-rails-linux.kdl"
 
 # Git aliases
 alias commit="git commit -am"
