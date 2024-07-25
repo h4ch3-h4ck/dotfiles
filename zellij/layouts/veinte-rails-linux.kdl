@@ -31,9 +31,6 @@ layout {
         pane {
           cwd "~/dev/veinte/api"
         }
-        pane {
-          cwd "~/dev/veinte/api"
-        }
       }
     }
     pane size=1 borderless=true {
