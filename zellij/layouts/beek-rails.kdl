@@ -1,5 +1,8 @@
 layout {
   tab name="www" {
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/beek/www"
@@ -7,12 +10,12 @@ layout {
       pane {
         cwd "~/dev/beek/www"
       }
-    }
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
     }
   }
   tab name="player-www" {
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/beek/player-www"
@@ -21,11 +24,11 @@ layout {
         cwd "~/dev/beek/player-www"
       }
     }
+  }
+  tab name="api" {
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
     }
-  }
-  tab name="api" {
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/beek/api"
@@ -50,9 +53,6 @@ layout {
           command "~/dev/config/dotfiles/zellij/init.sh"
         }
       }
-    }
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
     }
   }
 }

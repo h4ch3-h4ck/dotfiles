@@ -1,5 +1,8 @@
 layout {
   tab name="app" {
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/veinte/app"
@@ -11,11 +14,11 @@ layout {
         start_suspended true
       }
     }
+  }
+  tab name="api" {
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
     }
-  }
-  tab name="api" {
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/veinte/api"
@@ -32,9 +35,6 @@ layout {
           cwd "~/dev/veinte/api"
         }
       }
-    }
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
     }
   }
 }
