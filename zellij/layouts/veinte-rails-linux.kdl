@@ -30,9 +30,15 @@ layout {
         }
         pane {
           cwd "~/dev/veinte/api"
+          command "bash"
+          args "-c" "bundle exec rails s"
+          start_suspended true
         }
         pane {
           cwd "~/dev/veinte/api"
+          command "bash"
+          args "-c" "bundle exec prometheus_exporter"
+          start_suspended true
         }
       }
     }
