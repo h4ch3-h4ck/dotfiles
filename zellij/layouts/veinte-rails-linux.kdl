@@ -1,4 +1,15 @@
 layout {
+  tab name="system" {
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+
+    pane split_direction="vertical"{
+      pane {
+        command "btop"
+      }
+    }
+  }
   tab name="app" {
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
