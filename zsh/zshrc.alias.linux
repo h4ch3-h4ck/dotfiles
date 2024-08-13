@@ -49,3 +49,8 @@ alias personal="cd ~/dev/personal"
 alias clientes="cd ~/dev/clientes"
 alias beek="cd ~/dev/beek"
 alias ve="cd ~/dev/veinte"
+
+# kubectl
+alias kveinte="kubectl config use-context do-nyc1-veinte-001"
+alias kbeekprod="kubectl config use-context gke_beek-production_us-west1-a_beek-production"
+alias kbeekstaging="kubectl config use-context gke_beek-staging_us-west1-a_beek-staging"
