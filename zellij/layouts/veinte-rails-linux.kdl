@@ -12,6 +12,47 @@ layout {
       }
     }
   }
+  tab name="bots" {
+    pane split_direction="vertical" {
+      pane {
+        cwd "~/dev/veinte/bots"
+        focus true
+      }
+      pane split_direction="horizontal" {
+        pane {
+          cwd "~/dev/veinte/bots"
+          command "bash"
+          args "-c" "yarn dev"
+          start_suspended true
+        }
+        pane {
+          cwd "~/dev/veinte/bots"
+          command "bash"
+          args "-c" "yarn dev-worker"
+          start_suspended true
+        }
+      }
+    }
+  }
+  tab name="stp" {
+    pane split_direction="vertical" {
+      pane {
+        cwd "~/dev/veinte/stp"
+        focus true
+      }
+      pane split_direction="horizontal" {
+        pane {
+          cwd "~/dev/veinte/stp"
+        }
+        pane {
+          cwd "~/dev/veinte/stp"
+          command "bash"
+          args "-c" "PORT=3001 bundle exec rails s"
+          start_suspended true
+        }
+      }
+    }
+  }
   tab name="app" {
     pane split_direction="vertical" {
       pane {
