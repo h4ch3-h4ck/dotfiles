@@ -1,8 +1,11 @@
 layout {
-  tab name="www" {
+  default_tab_template {
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
     }
+    children
+  }
+  tab name="www" {
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/beek/www"
@@ -13,9 +16,6 @@ layout {
     }
   }
   tab name="player-www" {
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
-    }
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/beek/player-www"
@@ -26,9 +26,6 @@ layout {
     }
   }
   tab name="api" {
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
-    }
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/beek/api"

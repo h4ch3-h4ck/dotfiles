@@ -1,9 +1,11 @@
 layout {
-  tab name="system" {
+  default_tab_template {
     pane size=1 borderless=true {
       plugin location="zellij:compact-bar"
     }
-
+    children
+  }
+  tab name="system" {
     pane split_direction="vertical"{
       pane {
         command "btop"
@@ -11,9 +13,6 @@ layout {
     }
   }
   tab name="app" {
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
-    }
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/veinte/app"
@@ -27,9 +26,6 @@ layout {
     }
   }
   tab name="api" {
-    pane size=1 borderless=true {
-      plugin location="zellij:compact-bar"
-    }
     pane split_direction="vertical" {
       pane {
         cwd "~/dev/veinte/api"
