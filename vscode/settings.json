@@ -1,35 +1,33 @@
 {
-  "editor.fontFamily": "Fira Code",
-  "editor.fontSize": 13,
-  "editor.fontLigatures": true,
-  "editor.tabSize": 2,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.minimap.enabled": true,
   "editor.renderWhitespace": "all",
-  "editor.rulers": [
-    80
-  ],
-  "editor.renderIndentGuides": true,
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/.DS_Store": true
-  },
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   "files.associations": {
-    "*.js": "javascript",
-    "*.Rmd": "markdown"
+    "*.graphql": "graphql"
   },
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "mise",
+    "miseExecutablePath": "/home/luis/.local/bin/mise_w"
   },
   "vsicons.dontShowNewVersionMessage": true,
-  "vsicons.projectDetection.autoReload": true,
-  "javascript.validate.enable": false,
-  "flow.useNPMPackagedFlow": true,
-  "workbench.colorTheme": "Dracula",
+  "window.commandCenter": true,
+  "workbench.colorTheme": "Tokyo Hack",
   "workbench.iconTheme": "vscode-icons",
-  "go.formatTool": "gofmt",
-  "ruby.lint": {
-      "rubocop": true
-  },
-  "ruby.specCommand": "spring rspec"
+  "workbench.sideBar.location": "right"
 }
