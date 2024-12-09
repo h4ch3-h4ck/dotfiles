@@ -21,14 +21,14 @@ layout {
       pane split_direction="horizontal" {
         pane {
           cwd "~/dev/veinte/bots"
-          command "bash"
-          args "-c" "yarn dev"
+          command "zsh"
+          args "-c" " source ~/.zshrc && yarn dev"
           start_suspended true
         }
         pane {
           cwd "~/dev/veinte/bots"
-          command "bash"
-          args "-c" "yarn dev-worker"
+          command "zsh"
+          args "-c" " source ~/.zshrc && yarn dev-worker"
           start_suspended true
         }
       }
@@ -46,8 +46,8 @@ layout {
         }
         pane {
           cwd "~/dev/veinte/stp"
-          command "bash"
-          args "-c" "PORT=3001 bundle exec rails s"
+          command "zsh"
+          args "-c" " source ~/.zshrc && PORT=3001 bundle exec rails s"
           start_suspended true
         }
       }
@@ -78,14 +78,14 @@ layout {
         }
         pane {
           cwd "~/dev/veinte/api"
-          command "bash"
-          args "-c" "bundle exec rails s"
+          command "zsh"
+          args "-c" " source ~/.zshrc && bundle exec rails s"
           start_suspended true
         }
         pane {
           cwd "~/dev/veinte/api"
-          command "bash"
-          args "-c" "bundle exec prometheus_exporter"
+          command "zsh"
+          args "-c" " source ~/.zshrc && bundle exec prometheus_exporter"
           start_suspended true
         }
       }
