@@ -4,9 +4,9 @@ layout {
       plugin location="zellij:compact-bar"
     }
     children
-    pane size=1 borderless=true {
-      plugin location="zellij:status-bar"
-    }
+    // pane size=1 borderless=true {
+    //   plugin location="zellij:status-bar"
+    // }
   }
   tab name="system" {
     pane split_direction="vertical"{
@@ -82,7 +82,7 @@ layout {
         pane {
           cwd "~/dev/veinte/api"
           command "zsh"
-          args "-c" " source ~/.zshrc && bundle exec rails s"
+          args "-c" "source ~/.zshrc && bundle exec rails s"
           start_suspended true
         }
         pane {
@@ -92,6 +92,14 @@ layout {
           start_suspended true
         }
       }
+    }
+  }
+  tab name="neovim" {
+    pane {
+      cwd "~/dev/veinte/api"
+      command "zsh"
+      args "-c" "source ~/.zshrc && nvim ."
+      start_suspended true
     }
   }
 }
