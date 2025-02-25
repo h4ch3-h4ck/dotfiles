@@ -13,6 +13,7 @@ alias reload="source ~/.zshrc"
 alias z="zellij"
 alias zveinte="z --layout ~/dev/config/dotfiles/zellij/layouts/veinte-rails-linux.kdl"
 alias zbeek="z --layout ~/dev/config/dotfiles/zellij/layouts/beek-rails-linux.kdl"
+alias zm="z --layout ~/dev/config/dotfiles/zellij/layouts/musa-rails-linux.kdl"
 
 # Git aliases
 alias commit="git commit -am"
@@ -49,6 +50,7 @@ alias personal="cd ~/dev/personal"
 alias clientes="cd ~/dev/clientes"
 alias beek="cd ~/dev/beek"
 alias ve="cd ~/dev/veinte"
+alias musa="cd ~/dev/musa"
 
 # kubectl
 alias kveinte="kubectl config use-context do-nyc1-veinte-001"
