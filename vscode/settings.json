@@ -29,5 +29,6 @@
   "window.commandCenter": true,
   "workbench.colorTheme": "Tokyo Hack",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "extensions.ignoreRecommendations": true
 }
