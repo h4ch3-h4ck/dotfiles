@@ -63,8 +63,8 @@ layout {
       }
       pane {
         cwd "~/dev/veinte/app"
-        command "yarn"
-        args "dev"
+        command "zsh"
+        args "-c" "source ~/.zshrc && yarn dev"
         start_suspended true
       }
     }
@@ -88,7 +88,7 @@ layout {
         pane {
           cwd "~/dev/veinte/api"
           command "zsh"
-          args "-c" " source ~/.zshrc && bundle exec prometheus_exporter"
+          args "-c" " source ~/.zshrc && bundle exec sidekiq"
           start_suspended true
         }
       }
