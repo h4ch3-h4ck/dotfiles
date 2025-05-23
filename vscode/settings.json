@@ -21,9 +21,9 @@
   "files.associations": {
     "*.graphql": "graphql"
   },
+  "rubyLsp.rubyExecutablePath": "/home/luis/.local/share/mise/installs/ruby/3.2.8/bin/ruby",
   "rubyLsp.rubyVersionManager": {
-    "identifier": "mise",
-    "miseExecutablePath": "/home/luis/.local/bin/mise_w"
+      "identifier": "mise",
   },
   "vsicons.dontShowNewVersionMessage": true,
   "window.commandCenter": true,
