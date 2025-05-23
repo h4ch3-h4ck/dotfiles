@@ -23,7 +23,7 @@ layout {
       pane {
         cwd "~/dev/veinte/app"
         command "zsh"
-        args "-c" "source ~/.zshrc && yarn dev"
+        args "-c" "source ~/.zshrc && pnpm dev"
         start_suspended true
       }
     }
