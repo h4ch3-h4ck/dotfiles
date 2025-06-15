@@ -17,6 +17,7 @@ export PATH=$HOME/.local/bin:/snap/bin:$HOME/.local/share/mise/shims:$PATH
 # Editor used by CLI
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
+export ELECTRON_OZONE_PLATFORM_HINT="wayland"
 
 # Git Logs
 gitlog () {
