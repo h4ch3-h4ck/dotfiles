@@ -1,0 +1,4 @@
+#!/bin/bash
+export MISE_RUBY_SETUP_SHIMS=1
+nohup /opt/cursor.appimage "$@" >/dev/null 2>&1 &
+
