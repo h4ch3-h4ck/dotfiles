@@ -37,9 +37,6 @@
         "warp-on-scroll": true,
         "format": "{name}: {icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
             "urgent": "",
             "active": "",
             "default": ""
