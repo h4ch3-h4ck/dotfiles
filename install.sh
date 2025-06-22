@@ -137,6 +137,7 @@ if command -v code &> /dev/null; then
   
   if [[ -f "$DOTFILES_DIR/vscode/settings.json" ]]; then
     create_symlink "$DOTFILES_DIR/vscode/settings.json" "$VSCODE_CONFIG_DIR/settings.json" "VSCode settings"
+    create_symlink "$DOTFILES_DIR/vscode/keybindings.json" "$VSCODE_CONFIG_DIR/keybindings.json" "VSCode keybindings"
   fi
 else
   echo -e "${YELLOW}  VSCode not found, skipping VSCode configuration${NC}"
@@ -144,6 +145,18 @@ fi
 
 # Cursor editor settings
 echo -e "\n${BLUE}🖱️  Installing Cursor editor settings...${NC}"
+# Copy VSCode settings to Cursor
+if [[ -f "$DOTFILES_DIR/vscode/settings.json" ]]; then
+  if [[ "$OS" == "mac" ]]; then
+    CURSOR_CONFIG_DIR="$HOME/Library/Application Support/Cursor/User"
+  else
+    CURSOR_CONFIG_DIR="$HOME/.config/Cursor/User"
+  fi
+  
+  create_symlink "$DOTFILES_DIR/vscode/settings.json" "$CURSOR_CONFIG_DIR/settings.json" "Cursor settings"
+  create_symlink "$DOTFILES_DIR/vscode/keybindings.json" "$CURSOR_CONFIG_DIR/keybindings.json" "Cursor keybindings"
+fi
+
 if [[ -d "$DOTFILES_DIR/cursor" ]]; then
   if [[ "$OS" == "linux" ]]; then
     # Install Cursor desktop file and icon

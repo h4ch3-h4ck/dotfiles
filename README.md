@@ -27,8 +27,9 @@ Linux with Hyprland
 ## Quick Setup
 
 ```bash
-git clone https://github.com/luismendozamx/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+mkdir ~/dev/config
+git clone https://github.com/luismendozamx/dotfiles.git ~/dev/config/dotfiles
+cd ~/dev/config/dotfiles
 ./install.sh
 ```
 
