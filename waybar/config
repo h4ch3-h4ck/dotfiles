@@ -19,6 +19,7 @@
         "cpu",
         "memory",
         "temperature",
+        "hyprland/language",
         "backlight",
         "battery",
         "battery#bat2",

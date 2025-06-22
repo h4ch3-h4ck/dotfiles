@@ -94,6 +94,11 @@ if [[ "$OS" == "linux" && -d "$DOTFILES_DIR/hypr" ]]; then
   create_symlink "$DOTFILES_DIR/hypr" "$HOME/.config/hypr" "Hyprland window manager config"
 fi
 
+# btop system monitor
+if [[ -d "$DOTFILES_DIR/btop" ]]; then
+  create_symlink "$DOTFILES_DIR/btop" "$HOME/.config/btop" "btop system monitor config"
+fi
+
 # Kitty terminal
 if [[ -d "$DOTFILES_DIR/kitty" ]]; then
   create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty" "Kitty terminal config"
