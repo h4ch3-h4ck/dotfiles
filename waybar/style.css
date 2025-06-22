@@ -19,7 +19,7 @@ window#waybar {
 .modules-right
 {
     background: rgba(0, 0, 8, .7);
-    margin: 5px 10px;
+    margin: 5px 5px;
     padding: 0 5px;
     border-radius: 15px;
 }
@@ -48,7 +48,7 @@ window#waybar {
 #power-profiles-daemon,
 #language,
 #mpd {
-    padding: 0 10px;
+    padding: 0 5px;
     border-radius: 15px;
 }
 

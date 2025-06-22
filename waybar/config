@@ -6,7 +6,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     "modules-left": [
-        // "custom/arch",
+        "custom/arch",
         "hyprland/workspaces"
     ],
     "modules-center": [
@@ -19,7 +19,7 @@
         "cpu",
         "memory",
         "temperature",
-        "hyprland/language",
+        "backlight",
         "battery",
         "battery#bat2",
         "clock"

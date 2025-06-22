@@ -4,7 +4,6 @@
     "tooltip": true,
     "tooltip-format": "btw"
   },
-
   "hyprland/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -68,6 +67,10 @@
     "format": "  {}",
     "format-en": "EN",
     "format-es": "ES"
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
   "battery": {
     "states": {
