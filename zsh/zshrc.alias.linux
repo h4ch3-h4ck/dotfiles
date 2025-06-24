@@ -8,6 +8,8 @@ alias prom="bundle exec prometheus_exporter"
 ## Utility Aliases
 alias ~="cd ~"
 alias reload="source ~/.zshrc"
+alias day="hyprctl hyprsunset identity"
+alias night="hyprctl hyprsunset temperature 4500"
 
 # Zellij
 alias z="zellij"
