@@ -119,12 +119,6 @@ if [[ -d "$DOTFILES_DIR/zellij" ]]; then
   create_symlink "$DOTFILES_DIR/zellij" "$HOME/.config/zellij" "Zellij terminal multiplexer config"
 fi
 
-# Git configuration
-echo -e "\n${BLUE}📝 Installing Git configuration...${NC}"
-if [[ -f "$DOTFILES_DIR/git/gitconfig" ]]; then
-  create_symlink "$DOTFILES_DIR/git/gitconfig" "$HOME/.gitconfig" "Git configuration"
-fi
-
 # Zsh configuration
 echo -e "\n${BLUE}🐚 Installing Zsh configuration...${NC}"
 if [[ -f "$DOTFILES_DIR/zsh/zshrc" ]]; then
