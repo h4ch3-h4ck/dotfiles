@@ -49,6 +49,24 @@ layout {
       }
     }
   }
+  tab name="claude" {
+    pane split_direction="vertical" {
+      pane {
+          cwd "~/dev/veinte/app"
+          command "zsh"
+          args "-c" "source ~/.zshrc && claude"
+          start_suspended true
+        }
+      pane split_direction="horizontal" {
+        pane {
+          cwd "~/dev/veinte/api"
+          command "zsh"
+          args "-c" "source ~/.zshrc && claude"
+          start_suspended true
+        }
+      }
+    }
+  }
   tab name="deploy" {
     pane split_direction="vertical" {
       pane {
@@ -62,14 +80,6 @@ layout {
           start_suspended true
         }
       }
-    }
-  }
-  tab name="neovim" {
-    pane {
-      cwd "~/dev/veinte/api"
-      command "zsh"
-      args "-c" "source ~/.zshrc && nvim ."
-      start_suspended true
     }
   }
   tab name="tunnel" {

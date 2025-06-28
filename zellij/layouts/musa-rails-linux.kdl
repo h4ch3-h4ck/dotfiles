@@ -21,9 +21,6 @@ layout {
         pane {
           cwd "~/dev/musa/api"
         }
-        pane {
-          cwd "~/dev/musa/api"
-        }
       }
     }
   }
