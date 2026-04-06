@@ -1,0 +1,64 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[┌──](bold #bb9af7)\
+$username\
+[＠](bold #bb9af7)\
+$hostname\
+[──](bold #bb9af7)\
+$directory\
+$git_branch\
+$git_status\
+$status\
+\n\
+[└─](bold #bb9af7)\
+$character"""
+
+[username]
+style_user = "bold #7dcfff"
+style_root = "bold #f7768e"
+format = "[$user]($style)"
+show_always = true
+
+[hostname]
+ssh_only = false
+style = "bold #9ece6a"
+format = "[$hostname]($style)"
+
+[directory]
+style = "bold #7aa2f7"
+format = "[ $path]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+symbol = " "
+style = "bold #9ece6a"
+format = ' [ $symbol$branch]($style)'
+
+[git_status]
+style = "bold #ff9e64"
+format = '[$all_status$ahead_behind]($style)'
+ahead = "⇡${count}"
+behind = "⇣${count}"
+modified = " ~${count}"
+staged = " +${count}"
+untracked = " ?${count}"
+deleted = " -${count}"
+
+[status]
+disabled = false
+style = "bold #f7768e"
+format = '[ ✘]($style)'
+success_symbol = ""
+
+[character]
+success_symbol = "[❯](bold #9ece6a)"
+error_symbol = "[❯](bold #f7768e)"
+vicmd_symbol = "[❮](bold #bb9af7)"
