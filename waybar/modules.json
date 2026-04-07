@@ -93,5 +93,17 @@
     "format": "{:%H:%M | %e %b} ",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
+  },
+  "custom/target": {
+    "exec": "~/.config/waybar/scripts/target.sh",
+    "interval": 2,
+    "format": "{}",
+    "tooltip": false
+  },
+  "custom/vpn": {
+    "exec": "~/.config/waybar/scripts/vpn_status.sh",
+    "interval": 2,
+    "format": "{}",
+    "tooltip": false
   }
 }
