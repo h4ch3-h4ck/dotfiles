@@ -103,3 +103,26 @@ window#waybar {
 #custom-arch:hover {
     color: #1793d1;
 }
+
+/* --- Estilos personalizados para Hacking (heredados de Parrot) --- */
+
+#custom-target,
+#custom-vpn {
+    padding: 0 5px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+#custom-target {
+    color: #f38ba8; /* Rojo Mocha para el Objetivo */
+}
+
+#custom-vpn {
+    color: #a6e3a1; /* Verde Mocha para la VPN */
+}
+
+/* Efecto hover igual al resto de tus módulos */
+#custom-target:hover,
+#custom-vpn:hover {
+    background: rgba(26, 27, 38, 0.9);
+}
