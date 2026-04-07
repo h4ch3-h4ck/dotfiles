@@ -1,4 +1,4 @@
-# Luis Mendoza - Dotfiles
+# h4ch3 - Dotfiles
 
 These are a collection of personal scripts and configs I have collected over the years, I use them to maintain a standard environment across my machines. Feel free to copy, clone, take inspiration, or do whatever you want with them.
 
