@@ -18,11 +18,15 @@ alias cat="bat"
 alias catp="bat --plain"
 
 # --- CONFIGURACIONES RÁPIDAS ---
+alias ghostconf="nano ~/.config/ghostty/config"
 alias zshconf="nano ~/dev/config/dotfiles/zsh/zshrc.linux"
 alias aliasconf="nano ~/dev/config/dotfiles/zsh/zshrc.alias.linux"
 alias starconf="nano ~/.config/starship.toml"
 alias fastconf="nano ~/.config/fastfetch/config.jsonc"
 alias starshipconf="nano ~/.config/starship.toml"
+alias targetconf="nano ~/dev/config/dotfiles/waybar/scripts/target.sh"
+alias vpnconf="nano ~/dev/config/dotfiles/waybar/scripts/vpn_status.sh"
+
 
 # --- HYPRLAND & ESTÉTICA ---
 alias day="hyprctl hyprsunset identity"
@@ -44,6 +48,11 @@ alias frotar="sudo pacman -Sc && yay -Sc && (pacman -Qdtq | xargs -r sudo pacman
 alias myip="curl ifconfig.me"
 alias ports="ss -tuln"
 alias grep='grep --color=auto'
+
+# Setea IP y Nombre. Ej: settarget 10.10.10.1 Windows10
+alias settarget='echo "$1 $2" > ~/.config/bin/target'
+# Limpia el target
+alias cleartarget='truncate -s 0 ~/.config/bin/target && pkill -RTMIN+5 waybar'
 
 # --- MONITORIZACIÓN ---
 alias top="btop"
