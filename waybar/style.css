@@ -106,19 +106,21 @@ window#waybar {
 
 /* --- Estilos personalizados para Hacking (heredados de Parrot) --- */
 
-#custom-target,
-#custom-vpn {
-    padding: 0 5px;
-    border-radius: 15px;
-    font-weight: bold;
+#custom-target, #custom-vpn {
+    padding: 0 10px;
+    margin: 0 5px;
+    border-radius: 8px;
+    background-color: #1e1e2e; /* Color oscuro Catppuccin */
 }
 
 #custom-target {
-    color: #f38ba8; /* Rojo Mocha para el Objetivo */
+    color: #f38ba8; /* Rojo */
+    border: 1px solid #f38ba8;
 }
 
 #custom-vpn {
-    color: #a6e3a1; /* Verde Mocha para la VPN */
+    color: #a6e3a1; /* Verde */
+    border: 1px solid #a6e3a1;
 }
 
 /* Efecto hover igual al resto de tus módulos */

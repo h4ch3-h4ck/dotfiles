@@ -98,12 +98,16 @@
     "exec": "~/.config/waybar/scripts/target.sh",
     "interval": 2,
     "format": "{}",
+    "on-click": "ghostty --title='edit-target' -e nano ~/.config/bin/target",
+    "on-click-right": "truncate -s 0 ~/.config/bin/target",
     "tooltip": false
   },
   "custom/vpn": {
     "exec": "~/.config/waybar/scripts/vpn_status.sh",
     "interval": 2,
     "format": "{}",
+    "on-click": "ghostty -e nmtui",
+    "on-click-right": "nmcli connection down tun0",
     "tooltip": false
   }
 }
