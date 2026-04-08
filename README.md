@@ -1,62 +1,105 @@
-# h4ch3 - Dotfiles
+# 🐧 h4ch3 — Dotfiles (ThinkPad P53)
 
-These are a collection of personal scripts and configs I have collected over the years, I use them to maintain a standard environment across my machines. Feel free to copy, clone, take inspiration, or do whatever you want with them.
+![screenshot](screenshot.png)
 
-Use at your own risk and make sure you know what you are doing.
+Colección de archivos de configuración personales para un entorno productivo en Arch Linux,
+optimizados específicamente para el Lenovo ThinkPad P53. Combina la potencia de **Hyprland**
+con la estética dinámica de **Wallust** (colores generados desde el wallpaper).
 
-## Requirements
+> [!WARNING]
+> Usa estos scripts bajo tu propio riesgo. Revisa `install.sh` antes de ejecutarlo.
+> Los archivos existentes se respaldan automáticamente en `~/.dotfiles_backup/`.
 
-This scripts assumes you have the following installed:
+---
 
-* zsh
-* oh-my-zsh
-* starship
-* VSCode or Cursor
-* git
-* mise
-* neovim using NvChad 
+## ✨ Stack
 
-## Platform Support
+| Componente | Herramienta |
+|---|---|
+| WM | Hyprland + hyprlock + hypridle |
+| Terminal | Ghostty |
+| Shell | Zsh modular + Starship |
+| Bar | Waybar (con scripts VPN / target) |
+| Launcher | Wofi |
+| Colores | Wallust (dinámico desde wallpaper) |
+| Monitor de sistema | btop |
 
-This configs can be used on Linux and/or macOS. The linux configs also support Hyprland, but can be used on Gnome or KDE as well.
+---
 
-Linux with Hyprland
+## 💻 Hardware objetivo (P53)
 
-![Screenshot](./screenshot.png)
+- **GPU**: Nvidia Quadro RTX 3000 — variables de entorno ajustadas para Hyprland (Optimus / nvidia-dkms)
+- **CPU**: Intel Core i7-9850H — balance rendimiento/batería
+- **RAM**: 64 GB
+- **Pantalla**: eDP-1 con soporte para monitores externos
 
-## Quick Setup
+---
+
+## 🛠️ Requisitos
+
+**Base:**
+```
+zsh  git  starship  hyprland  hyprlock  hypridle  waybar  wofi  wallust  ghostty
+```
+
+**Opcionales:**
+```
+btop  fastfetch  neovim  zellij
+```
+
+---
+
+## 📦 Instalación
 
 ```bash
-mkdir ~/dev/config
-git clone https://github.com/luismendozamx/dotfiles.git ~/dev/config/dotfiles
+# Clonar en el directorio estándar
+mkdir -p ~/dev/config
+git clone https://github.com/h4ch3-h4ck/dotfiles.git ~/dev/config/dotfiles
+
+# Instalar
 cd ~/dev/config/dotfiles
+chmod +x install.sh
 ./install.sh
 ```
 
-## What's Included
+El script detecta tu OS, crea symlinks y respalda cualquier config existente.
 
-- **Shell**: Zsh configuration with custom themes and aliases
-- **Terminal**: Ghostty, Kitty, and iTerm2 configurations
-- **Window Manager**: Hyprland setup with Waybar and Wofi (Linux)
-- **Editor**: VSCode and Cursor settings
-- **Git**: Global Git configuration
-- **Terminal Multiplexer**: Zellij layouts and configuration
-- **Utilities**: Custom scripts in `bin/`
+---
 
-## Structure
+## 📂 Estructura
 
 ```
-├── bin/           # Utility scripts
-├── cursor/        # Cursor editor setup
-├── ghostty/       # Ghostty terminal config
-├── git/           # Git configuration
-├── hypr/          # Hyprland window manager (Linux)
-├── kitty/         # Kitty terminal config
-├── vscode/        # VSCode settings
-├── waybar/        # Status bar config (Linux)
-├── wofi/          # App launcher (Linux)
-├── zellij/        # Terminal multiplexer
-└── zsh/           # Shell configuration
+.
+├── btop/        # Config del monitor de sistema
+├── ghostty/     # Terminal (config + tema Wallust)
+├── git/         # Configuración global de Git
+├── hypr/        # Hyprland, Hyprlock, Hypridle
+├── starship/    # Prompt (tema Tokyo Night)
+├── waybar/      # Barra de estado + scripts (VPN, target)
+├── wofi/        # Launcher + estilos CSS
+├── zsh/         # Shell modular (alias globales, alias Linux)
+├── install.sh   # Script de instalación con symlinks
+└── pkglist.txt  # Lista de paquetes del sistema
 ```
 
-The installation script automatically detects your OS and installs appropriate configurations. Existing files are backed up to `~/.dotfiles_backup/`.
+---
+
+## 🎨 Wallust — Colores dinámicos
+
+[Wallust](https://codeberg.org/explosion-mental/wallust) genera el esquema de colores desde tu wallpaper y lo aplica automáticamente a Ghostty, Waybar e Hyprland.
+
+Los templates están en las subcarpetas `wallust/` de cada componente, por ejemplo:
+`hypr/wallust/wallust-hyprland.conf`
+
+---
+
+## 🙏 Créditos
+
+Empezó como fork de la plantilla de [luismendozamx](https://github.com/luismendozamx),
+evolucionado para adaptarse al hardware P53 y mi flujo de trabajo personal.
+
+---
+
+## 📄 Licencia
+
+MIT — copia, modifica y comparte libremente.
