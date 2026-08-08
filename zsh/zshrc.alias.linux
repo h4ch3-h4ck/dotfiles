@@ -57,3 +57,11 @@ alias cleartarget='truncate -s 0 ~/.config/bin/target && pkill -RTMIN+5 waybar'
 alias top="btop"
 alias df="df -h"
 alias free="free -h"
+
+# --- SERVER HOME-LAB ---
+# Homelab services
+alias pihole='xdg-open http://100.81.6.42:8082/admin'
+alias portainer='xdg-open http://100.81.6.42:9000'
+alias kuma='xdg-open http://100.81.6.42:3001'
+alias nextcloud='xdg-open http://100.81.6.42:8080'
+alias mount-nas='sudo mount -t cifs //100.81.6.42/NAS /mnt/nas -o username=h4ch3-lab,uid=1000,gid=1000'
