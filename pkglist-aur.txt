@@ -1,0 +1,11 @@
+gtk-engine-murrine
+oh-my-posh
+packettracer
+solarust
+ttf-victor-mono
+vmware-keymaps
+vmware-workstation
+wallust
+wlogout
+yay
+yay-debug
