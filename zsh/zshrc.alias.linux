@@ -34,6 +34,25 @@ alias hyprconf="nano ~/.config/hypr/hyprland.conf"
 alias waybarconf="nano ~/.config/waybar/config"
 alias waybarstyle="nano ~/.config/waybar/style.css"
 
+# --- PANTALLA / BRILLO ---
+brillo() {
+  local nivel="${1:-100%}"
+  brightnessctl set "$nivel"
+  echo "Brillo interno ajustado a: $nivel"
+}
+
+brillo-monitor() {
+  local nivel="${1:-50}" 
+  nivel="${nivel%\%}"  # quita el % si lo escribes por costumbre
+  ddcutil setvcp 10 "$nivel" --display 1
+  echo "Brillo del monitor externo ajustado a: $nivel"
+}
+
+brillo-status() {
+  echo "Interno: $(brightnessctl get)/$(brightnessctl max)"
+  echo "Externo: $(ddcutil getvcp 10 --display 1 | grep -oP 'current value = *\K[0-9]+')"
+}
+
 # --- SISTEMA ARCH (EL MANTENIMIENTO) ---
 alias update="sudo pacman -Syu"
 alias yayu="yay -Syu"
@@ -65,3 +84,6 @@ alias portainer='xdg-open http://100.81.6.42:9000'
 alias kuma='xdg-open http://100.81.6.42:3001'
 alias nextcloud='xdg-open http://100.81.6.42:8080'
 alias mount-nas='sudo mount -t cifs //100.81.6.42/NAS /mnt/nas -o username=h4ch3-lab,uid=1000,gid=1000'
+
+# --- APPS ---
+alias packettracer='/usr/lib/packettracer/packettracer.AppImage & disown'
