@@ -128,3 +128,93 @@ ia-pipe() {
     local input_stream=$(cat)
     ollama run qwen2.5-coder:7b "$pipeline_prompt\n\n--- Input Stream ---\n$input_stream"
 }
+# --- NAVEGACIÓN ---
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias src="source ~/.zshrc"
+alias cls="clear"
+alias dotfiles="cd ~/dev/config/dotfiles"
+
+# --- MEJORAS DE TERMINAL (EZA & BAT) ---
+# eza (ls mejorado) - Quitamos el duplicado 'll' que tenías
+alias ls="eza --icons --group-directories-first"
+alias ll="eza -la --icons --group-directories-first"
+alias lt="eza --tree --icons"
+alias la="eza -a --icons"
+
+# bat (cat mejorado)
+alias cat="bat"
+alias catp="bat --plain"
+
+# --- CONFIGURACIONES RÁPIDAS ---
+alias ghostconf="nano ~/.config/ghostty/config"
+alias zshconf="nano ~/dev/config/dotfiles/zsh/zshrc.linux"
+alias aliasconf="nano ~/dev/config/dotfiles/zsh/zshrc.alias.linux"
+alias fastconf="nano ~/.config/fastfetch/config.jsonc"
+alias starshipconf="nano ~/.config/starship.toml"
+alias targetconf="nano ~/dev/config/dotfiles/waybar/scripts/target.sh"
+alias vpnconf="nano ~/dev/config/dotfiles/waybar/scripts/vpn_status.sh"
+
+
+# --- HYPRLAND & ESTÉTICA ---
+alias day="hyprctl hyprsunset identity"
+alias night="hyprctl hyprsunset temperature 4500"
+alias hyprconf="nano ~/.config/hypr/hyprland.conf"
+alias waybarconf="nano ~/.config/waybar/config"
+alias waybarstyle="nano ~/.config/waybar/style.css"
+
+# --- PANTALLA / BRILLO ---
+brillo() {
+  local nivel="${1:-100%}"
+  brightnessctl set "$nivel"
+  echo "Brillo interno ajustado a: $nivel"
+}
+
+brillo-monitor() {
+  local nivel="${1:-50}" 
+  nivel="${nivel%\%}"  # quita el % si lo escribes por costumbre
+  ddcutil setvcp 10 "$nivel" --display 1
+  echo "Brillo del monitor externo ajustado a: $nivel"
+}
+
+brillo-status() {
+  echo "Interno: $(brightnessctl get)/$(brightnessctl max)"
+  echo "Externo: $(ddcutil getvcp 10 --display 1 | grep -oP 'current value = *\K[0-9]+')"
+}
+
+# --- SISTEMA ARCH (EL MANTENIMIENTO) ---
+alias update="sudo pacman -Syu"
+alias yayu="yay -Syu"
+alias install="sudo pacman -S"
+alias search="pacman -Ss"
+alias remove="sudo pacman -Rns"
+# El comando definitivo para limpiar el sistema
+alias frotar="sudo pacman -Sc && yay -Sc && (pacman -Qdtq | xargs -r sudo pacman -Rns)"
+
+# --- RED & CTF ---
+alias myip="curl ifconfig.me"
+alias ports="ss -tuln"
+alias grep='grep --color=auto'
+
+# Setea IP y Nombre. Ej: settarget 10.10.10.1 Windows10
+alias settarget='echo "$1 $2" > ~/.config/bin/target'
+# Limpia el target
+alias cleartarget='truncate -s 0 ~/.config/bin/target && pkill -RTMIN+5 waybar'
+
+# --- MONITORIZACIÓN ---
+alias top="btop"
+alias df="df -h"
+alias free="free -h"
+
+# --- SERVER HOME-LAB ---
+# Homelab services
+alias pihole='xdg-open http://100.81.6.42:8082/admin'
+alias portainer='xdg-open http://100.81.6.42:9000'
+alias kuma='xdg-open http://100.81.6.42:3001'
+alias nextcloud='xdg-open http://100.81.6.42:8080'
+alias mount-nas='sudo mount -t cifs //100.81.6.42/NAS /mnt/nas -o username=h4ch3-lab,uid=1000,gid=1000'
+
+# --- APPS ---
+alias packettracer='/usr/lib/packettracer/packettracer.AppImage & disown'
+
