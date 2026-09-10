@@ -7,13 +7,11 @@ alias cls="clear"
 alias dotfiles="cd ~/dev/config/dotfiles"
 
 # --- MEJORAS DE TERMINAL (EZA & BAT) ---
-# eza (ls mejorado) - Quitamos el duplicado 'll' que tenías
 alias ls="eza --icons --group-directories-first"
 alias ll="eza -la --icons --group-directories-first"
 alias lt="eza --tree --icons"
 alias la="eza -a --icons"
 
-# bat (cat mejorado)
 alias cat="bat"
 alias catp="bat --plain"
 
@@ -25,7 +23,6 @@ alias fastconf="nano ~/.config/fastfetch/config.jsonc"
 alias starshipconf="nano ~/.config/starship.toml"
 alias targetconf="nano ~/dev/config/dotfiles/waybar/scripts/target.sh"
 alias vpnconf="nano ~/dev/config/dotfiles/waybar/scripts/vpn_status.sh"
-
 
 # --- HYPRLAND & ESTÉTICA ---
 alias day="hyprctl hyprsunset identity"
@@ -43,7 +40,7 @@ brillo() {
 
 brillo-monitor() {
   local nivel="${1:-50}" 
-  nivel="${nivel%\%}"  # quita el % si lo escribes por costumbre
+  nivel="${nivel%\%}"
   ddcutil setvcp 10 "$nivel" --display 1
   echo "Brillo del monitor externo ajustado a: $nivel"
 }
@@ -59,7 +56,6 @@ alias yayu="yay -Syu"
 alias install="sudo pacman -S"
 alias search="pacman -Ss"
 alias remove="sudo pacman -Rns"
-# El comando definitivo para limpiar el sistema
 alias frotar="sudo pacman -Sc && yay -Sc && (pacman -Qdtq | xargs -r sudo pacman -Rns)"
 
 # --- RED & CTF ---
@@ -67,9 +63,7 @@ alias myip="curl ifconfig.me"
 alias ports="ss -tuln"
 alias grep='grep --color=auto'
 
-# Setea IP y Nombre. Ej: settarget 10.10.10.1 Windows10
 alias settarget='echo "$1 $2" > ~/.config/bin/target'
-# Limpia el target
 alias cleartarget='truncate -s 0 ~/.config/bin/target && pkill -RTMIN+5 waybar'
 
 # --- MONITORIZACIÓN ---
@@ -78,7 +72,6 @@ alias df="df -h"
 alias free="free -h"
 
 # --- SERVER HOME-LAB ---
-# Homelab services
 alias pihole='xdg-open http://100.81.6.42:8082/admin'
 alias portainer='xdg-open http://100.81.6.42:9000'
 alias kuma='xdg-open http://100.81.6.42:3001'
@@ -89,17 +82,17 @@ alias mount-nas='sudo mount -t cifs //100.81.6.42/NAS /mnt/nas -o username=h4ch3
 alias packettracer='/usr/lib/packettracer/packettracer.AppImage & disown'
 
 # ==========================================
-#       OLLAMA LOCAL AI SUITE 
+#       OLLAMA LOCAL AI SUITE
 # ==========================================
 
 export OLLAMA_MODELS="/var/lib/ollama"
 export OLLAMA_HOST="127.0.0.1:11434"
 
 # --- ASISTENTES INTERACTIVOS ---
-alias ia-q7="ollama run qwen2.5-coder:7b"     # Qwen Coder 7B (Rápido y diario)
-alias ia-q14="ollama run qwen2.5-coder:14b"   # Qwen Coder 14B (Análisis denso)
-alias ia-deep="ollama run deepseek-r1:8b"     # DeepSeek R1 8B (Razonamiento lógico)
-alias ia-phi="ollama run phi3.5:3.8b"         # Phi 3.5 3.8B (Ligero / Consultas flash)
+alias ia-q7="ollama run qwen2.5-coder:7b"
+alias ia-q14="ollama run qwen2.5-coder:14b"
+alias ia-deep="ollama run deepseek-r1:8b"
+alias ia-phi="ollama run phi3.5:3.8b"
 
 # --- GESTIÓN DEL SERVICIO OLLAMA ---
 alias ia-status="sudo systemctl status ollama"
@@ -107,9 +100,6 @@ alias ia-start="sudo systemctl start ollama"
 alias ia-stop="sudo systemctl stop ollama"
 
 # --- FUNCIONES DE ANÁLISIS DOCUMENTAL ---
-
-# Lee un archivo local y se lo pasa a Qwen para análisis
-# Uso: ia-read script.sh "Explícame qué hace este bloque"
 ia-read() {
     local target_file="$1"
     local analysis_prompt="$2"
@@ -121,100 +111,12 @@ ia-read() {
     fi
 }
 
-# Captura la salida de una tubería (pipe) y se la pasa a Qwen
-# Uso: journalctl -u docker -n 50 | ia-pipe "Explícame por qué falla"
 ia-pipe() {
     local pipeline_prompt="$1"
     local input_stream=$(cat)
     ollama run qwen2.5-coder:7b "$pipeline_prompt\n\n--- Input Stream ---\n$input_stream"
 }
-# --- NAVEGACIÓN ---
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias src="source ~/.zshrc"
-alias cls="clear"
-alias dotfiles="cd ~/dev/config/dotfiles"
 
-# --- MEJORAS DE TERMINAL (EZA & BAT) ---
-# eza (ls mejorado) - Quitamos el duplicado 'll' que tenías
-alias ls="eza --icons --group-directories-first"
-alias ll="eza -la --icons --group-directories-first"
-alias lt="eza --tree --icons"
-alias la="eza -a --icons"
-
-# bat (cat mejorado)
-alias cat="bat"
-alias catp="bat --plain"
-
-# --- CONFIGURACIONES RÁPIDAS ---
-alias ghostconf="nano ~/.config/ghostty/config"
-alias zshconf="nano ~/dev/config/dotfiles/zsh/zshrc.linux"
-alias aliasconf="nano ~/dev/config/dotfiles/zsh/zshrc.alias.linux"
-alias fastconf="nano ~/.config/fastfetch/config.jsonc"
-alias starshipconf="nano ~/.config/starship.toml"
-alias targetconf="nano ~/dev/config/dotfiles/waybar/scripts/target.sh"
-alias vpnconf="nano ~/dev/config/dotfiles/waybar/scripts/vpn_status.sh"
-
-
-# --- HYPRLAND & ESTÉTICA ---
-alias day="hyprctl hyprsunset identity"
-alias night="hyprctl hyprsunset temperature 4500"
-alias hyprconf="nano ~/.config/hypr/hyprland.conf"
-alias waybarconf="nano ~/.config/waybar/config"
-alias waybarstyle="nano ~/.config/waybar/style.css"
-
-# --- PANTALLA / BRILLO ---
-brillo() {
-  local nivel="${1:-100%}"
-  brightnessctl set "$nivel"
-  echo "Brillo interno ajustado a: $nivel"
-}
-
-brillo-monitor() {
-  local nivel="${1:-50}" 
-  nivel="${nivel%\%}"  # quita el % si lo escribes por costumbre
-  ddcutil setvcp 10 "$nivel" --display 1
-  echo "Brillo del monitor externo ajustado a: $nivel"
-}
-
-brillo-status() {
-  echo "Interno: $(brightnessctl get)/$(brightnessctl max)"
-  echo "Externo: $(ddcutil getvcp 10 --display 1 | grep -oP 'current value = *\K[0-9]+')"
-}
-
-# --- SISTEMA ARCH (EL MANTENIMIENTO) ---
-alias update="sudo pacman -Syu"
-alias yayu="yay -Syu"
-alias install="sudo pacman -S"
-alias search="pacman -Ss"
-alias remove="sudo pacman -Rns"
-# El comando definitivo para limpiar el sistema
-alias frotar="sudo pacman -Sc && yay -Sc && (pacman -Qdtq | xargs -r sudo pacman -Rns)"
-
-# --- RED & CTF ---
-alias myip="curl ifconfig.me"
-alias ports="ss -tuln"
-alias grep='grep --color=auto'
-
-# Setea IP y Nombre. Ej: settarget 10.10.10.1 Windows10
-alias settarget='echo "$1 $2" > ~/.config/bin/target'
-# Limpia el target
-alias cleartarget='truncate -s 0 ~/.config/bin/target && pkill -RTMIN+5 waybar'
-
-# --- MONITORIZACIÓN ---
-alias top="btop"
-alias df="df -h"
-alias free="free -h"
-
-# --- SERVER HOME-LAB ---
-# Homelab services
-alias pihole='xdg-open http://100.81.6.42:8082/admin'
-alias portainer='xdg-open http://100.81.6.42:9000'
-alias kuma='xdg-open http://100.81.6.42:3001'
-alias nextcloud='xdg-open http://100.81.6.42:8080'
-alias mount-nas='sudo mount -t cifs //100.81.6.42/NAS /mnt/nas -o username=h4ch3-lab,uid=1000,gid=1000'
-
-# --- APPS ---
-alias packettracer='/usr/lib/packettracer/packettracer.AppImage & disown'
-
+# --- OBSIDIAN VAULT SYNC ---
+alias inicio_boveda='rclone sync bastion-sftp:ObsidianVault ~/Obsidian/MiBoveda -P && obsidian ~/Obsidian/MiBoveda & disown'
+alias fin_boveda='rclone sync ~/Obsidian/MiBoveda bastion-sftp:ObsidianVault -P'
