@@ -64,6 +64,7 @@ create_symlinks() {
 
     # Wofi
     make_link "$DOTFILES_DIR/wofi"                        "$HOME/.config/wofi"
+    make_link "$DOTFILES_DIR/rofi"                       "$HOME/.config/rofi"
 
     # btop
     make_link "$DOTFILES_DIR/btop"                        "$HOME/.config/btop"
