@@ -1,3 +1,4 @@
+google-chrome
 gtk-engine-murrine
 oh-my-posh
 packettracer
@@ -6,6 +7,7 @@ ttf-victor-mono
 vmware-keymaps
 vmware-workstation
 wallust
+webex-bin
 wlogout
 yay
 yay-debug
