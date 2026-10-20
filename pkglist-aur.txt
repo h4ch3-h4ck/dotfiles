@@ -1,0 +1,9 @@
+google-chrome
+gtk-engine-murrine
+packettracer
+solarust
+ttf-victor-mono
+wallust
+webex-bin
+wlogout
+yay

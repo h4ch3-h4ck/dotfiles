@@ -61,6 +61,7 @@ create_symlinks() {
 
     # Starship
     make_link "$DOTFILES_DIR/starship/starship.toml"      "$HOME/.config/starship.toml"
+    make_link "$DOTFILES_DIR/pacman/makepkg.conf"      "$HOME/.config/pacman/makepkg.conf"
 
     # Rofi
     make_link "$DOTFILES_DIR/rofi"                       "$HOME/.config/rofi"
