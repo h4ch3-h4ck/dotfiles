@@ -81,42 +81,9 @@ alias mount-nas='sudo mount -t cifs //100.81.6.42/NAS /mnt/nas -o username=h4ch3
 # --- APPS ---
 alias packettracer='/usr/lib/packettracer/packettracer.AppImage & disown'
 
-# ==========================================
-#       OLLAMA LOCAL AI SUITE
-# ==========================================
-
-export OLLAMA_MODELS="/var/lib/ollama"
-export OLLAMA_HOST="127.0.0.1:11434"
-
-# --- ASISTENTES INTERACTIVOS ---
-alias ia-q7="ollama run qwen2.5-coder:7b"
-alias ia-q14="ollama run qwen2.5-coder:14b"
-alias ia-deep="ollama run deepseek-r1:8b"
-alias ia-phi="ollama run phi3.5:3.8b"
-
-# --- GESTIÓN DEL SERVICIO OLLAMA ---
-alias ia-status="sudo systemctl status ollama"
-alias ia-start="sudo systemctl start ollama"
-alias ia-stop="sudo systemctl stop ollama"
-
-# --- FUNCIONES DE ANÁLISIS DOCUMENTAL ---
-ia-read() {
-    local target_file="$1"
-    local analysis_prompt="$2"
-    if [[ -f "$target_file" ]]; then
-        local file_content=$(<"$target_file")
-        ollama run qwen2.5-coder:7b "$analysis_prompt\n\n--- Contexto [$target_file] ---\n$file_content"
-    else
-        echo "Aviso: El archivo '$target_file' no se encuentra."
-    fi
-}
-
-ia-pipe() {
-    local pipeline_prompt="$1"
-    local input_stream=$(cat)
-    ollama run qwen2.5-coder:7b "$pipeline_prompt\n\n--- Input Stream ---\n$input_stream"
-}
-
 # --- OBSIDIAN VAULT SYNC ---
-alias inicio_boveda='rclone sync bastion-sftp:ObsidianVault ~/Obsidian/MiBoveda -P && obsidian ~/Obsidian/MiBoveda & disown'
+alias inicio_boveda='rclone sync bastion-sftp:ObsidianVault ~/Obsidian/MiBoveda -P && xdg-open "obsidian://open?vault=MiBoveda" & disown'
 alias fin_boveda='rclone sync ~/Obsidian/MiBoveda bastion-sftp:ObsidianVault -P'
+
+# --- Apagar Equipo con seguridad ---
+alias off='read -q "?¿Apagar? [y/N] " && echo && sudo systemctl poweroff'

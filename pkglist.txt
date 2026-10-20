@@ -1,5 +1,4 @@
 adobe-source-code-pro-fonts
-awww
 baobab
 base
 base-devel
@@ -26,6 +25,7 @@ easyeffects
 efibootmgr
 epiphany
 exfatprogs
+expac
 eza
 fastfetch
 firefox
@@ -43,7 +43,6 @@ gnome-characters
 gnome-clocks
 gnome-color-manager
 gnome-connections
-gnome-console
 gnome-contacts
 gnome-control-center
 gnome-disk-utility
@@ -84,7 +83,6 @@ htop
 hypridle
 hyprland
 hyprlock
-hyprpaper
 hyprpolkitagent
 hyprshot
 hyprsunset
@@ -92,7 +90,6 @@ intel-ucode
 intel-undervolt
 inxi
 iwd
-kitty
 kvantum
 less
 libpulse
@@ -125,8 +122,6 @@ nvtop
 nwg-displays
 nwg-look
 obsidian
-oh-my-posh
-ollama-cuda
 openbsd-netcat
 orca
 os-prober
@@ -169,6 +164,7 @@ swaync
 system-config-printer
 tailscale
 tecla
+throttled
 tigervnc
 tree
 ttf-droid
@@ -183,8 +179,9 @@ vde2
 vim
 virt-manager
 virt-viewer
-vmware-keymaps
-vmware-workstation
+virtualbox
+virtualbox-host-dkms
+vlc
 wallust
 waybar
 webex-bin
@@ -193,7 +190,6 @@ whois
 wireless_tools
 wireplumber
 wlogout
-wofi
 wpa_supplicant
 xdg-desktop-portal-gnome
 xdg-desktop-portal-hyprland
@@ -203,9 +199,9 @@ xorg-server
 xorg-xinit
 yad
 yay
-yay-debug
 yelp
 yt-dlp
+zellij
 zram-generator
 zsh
 zsh-autocomplete

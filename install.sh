@@ -62,8 +62,7 @@ create_symlinks() {
     # Starship
     make_link "$DOTFILES_DIR/starship/starship.toml"      "$HOME/.config/starship.toml"
 
-    # Wofi
-    make_link "$DOTFILES_DIR/wofi"                        "$HOME/.config/wofi"
+    # Rofi
     make_link "$DOTFILES_DIR/rofi"                       "$HOME/.config/rofi"
 
     # btop
