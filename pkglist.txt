@@ -46,11 +46,9 @@ gnome-session
 gnome-settings-daemon
 gnome-shell
 gnome-tweaks
-google-chrome
 grilo-plugins
 grub
 gst-plugin-pipewire
-gtk-engine-murrine
 gvfs
 gvfs-afc
 gvfs-dnssd
@@ -107,7 +105,6 @@ openbsd-netcat
 orca
 os-prober
 otf-font-awesome
-packettracer
 pacman-contrib
 pamixer
 papers
@@ -131,7 +128,6 @@ rofi
 simple-scan
 smartmontools
 sof-firmware
-solarust
 starship
 stress-ng
 sudo
@@ -151,7 +147,6 @@ ttf-fira-code
 ttf-hack-nerd
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
-ttf-victor-mono
 umockdev
 vde2
 vim
@@ -160,14 +155,11 @@ virt-viewer
 virtualbox
 virtualbox-host-dkms
 vlc
-wallust
 waybar
-webex-bin
 wget
 whois
 wireless_tools
 wireplumber
-wlogout
 wpa_supplicant
 xdg-desktop-portal-gnome
 xdg-desktop-portal-hyprland
@@ -176,7 +168,6 @@ xdg-utils
 xorg-server
 xorg-xinit
 yad
-yay
 yt-dlp
 zellij
 zram-generator
