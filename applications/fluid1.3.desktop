@@ -1,0 +1,11 @@
+[Desktop Entry]
+NoDisplay=true
+Name=FLUID
+Comment=FLTK GUI Designer
+TryExec=fluid1.3
+Exec=fluid1.3 %F
+Icon=fluid
+Terminal=false
+Type=Application
+MimeType=application/x-fluid;
+Categories=Development;GUIDesigner;
