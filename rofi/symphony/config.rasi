@@ -7,7 +7,7 @@ configuration {
     disable-history: false;
     hide-scrollbar: true;
     sidebar-mode: false;
-    terminal: "kitty";
+    terminal: "ghostty";
     font: "CaskaydiaCove Nerd Font Mono 11";
 }
 

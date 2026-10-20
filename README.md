@@ -39,7 +39,7 @@ con la estética dinámica de **Wallust** (colores generados desde el wallpaper)
 
 **Base:**
 ```
-zsh  git  starship  hyprland  hyprlock  hypridle  waybar  wofi  wallust  ghostty
+zsh  git  starship  hyprland  hyprlock  hypridle  waybar  rofi  wallust  ghostty
 ```
 
 **Opcionales:**
@@ -76,7 +76,7 @@ El script detecta tu OS, crea symlinks y respalda cualquier config existente.
 ├── hypr/        # Hyprland, Hyprlock, Hypridle
 ├── starship/    # Prompt (tema Tokyo Night)
 ├── waybar/      # Barra de estado + scripts (VPN, target)
-├── wofi/        # Launcher + estilos CSS
+├── rofi/        # Launcher + estilos CSS
 ├── zsh/         # Shell modular (alias globales, alias Linux)
 ├── install.sh   # Script de instalación con symlinks
 └── pkglist.txt  # Lista de paquetes del sistema
