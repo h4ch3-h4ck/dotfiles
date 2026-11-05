@@ -35,4 +35,4 @@ export XCURSOR_SIZE=24
 export WLR_NO_HARDWARE_CURSORS=1
 
 # Si Sway se niega a arrancar por el driver propietario, añade --unsupported-gpu
-exec sway "$@"
+exec sway --unsupported-gpu "$@"
