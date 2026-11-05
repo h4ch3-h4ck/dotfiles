@@ -1,4 +1,4 @@
 #!/bin/sh
-# Mismo comando que el atajo SUPER+SHIFT+T de Hyprland ($setTarget).
-# Va en script para no depender de cómo Sway trata comillas y `;` en `exec`.
-exec ghostty -e "ntitle target-editor; nano /home/h4ch3/.config/bin/target"
+# SUPER+SHIFT+T: abre el fichero de target en nano.
+# El comando original usaba `ntitle`, que no existe en este sistema.
+exec ghostty --gtk-single-instance=false --title=target-editor -e nano /home/h4ch3/.config/bin/target

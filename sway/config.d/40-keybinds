@@ -5,7 +5,7 @@
 floating_modifier $mod normal
 
 # --- Aplicaciones ---------------------------------------------------------
-bindsym $mod+Return      exec ghostty
+bindsym $mod+Return      exec ghostty --gtk-single-instance=false
 bindsym $mod+e           exec nautilus
 bindsym $mod+b           exec firefox
 bindsym $mod+space       exec rofi -show drun
