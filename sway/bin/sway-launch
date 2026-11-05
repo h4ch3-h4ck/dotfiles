@@ -1,0 +1,38 @@
+#!/bin/sh
+# Lanza Sway con el entorno de sesión. Desde una TTY:  ~/.config/sway/bin/sway-launch
+#
+# P53 híbrido: Intel UHD 630 (00:02.0, driver i915) + Quadro RTX 3000 (01:00.0, nvidia).
+# Sway renderiza en la Intel (primaria) y la NVIDIA entra como segunda GPU solo para
+# las salidas que cuelguen de ella (típicamente HDMI/USB-C). NO se fuerzan
+# GBM_BACKEND / __GLX_VENDOR_LIBRARY_NAME / LIBVA_DRIVER_NAME: en híbrido hacen que
+# todo pase por la dGPU y son una fuente clásica de fallos. Para apps que SÍ necesiten
+# la NVIDIA usa `prime-run <app>` (paquete nvidia-prime).
+#
+# Las rutas /dev/dri/cardN cambian entre arranques, por eso se resuelven por dirección PCI.
+
+INTEL_PCI="0000:00:02.0"
+NVIDIA_PCI="0000:01:00.0"
+bp="${DRI_BYPATH:-/dev/dri/by-path}"
+
+intel=$(readlink -f "$bp/pci-$INTEL_PCI-card" 2>/dev/null)
+nvidia=$(readlink -f "$bp/pci-$NVIDIA_PCI-card" 2>/dev/null)
+
+if [ -e "$intel" ] && [ -e "$nvidia" ]; then
+    export WLR_DRM_DEVICES="$intel:$nvidia"     # el primero es el renderer primario
+elif [ -e "$intel" ]; then
+    export WLR_DRM_DEVICES="$intel"
+else
+    echo "sway-launch: no encuentro la iGPU en $bp; no se fija WLR_DRM_DEVICES" >&2
+fi
+
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+export XCURSOR_SIZE=24
+
+# Venía de tu Hyprland (bug de cursor con NVIDIA). Se mantiene por si alguna salida
+# cuelga de la dGPU; si todo va bien sin ella, puedes quitarla.
+export WLR_NO_HARDWARE_CURSORS=1
+
+# Si Sway se niega a arrancar por el driver propietario, añade --unsupported-gpu
+exec sway --unsupported-gpu "$@"

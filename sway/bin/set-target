@@ -1,0 +1,4 @@
+#!/bin/sh
+# SUPER+SHIFT+T: abre el fichero de target en nano.
+# El comando original usaba `ntitle`, que no existe en este sistema.
+exec ghostty --gtk-single-instance=false --title=target-editor -e nano /home/h4ch3/.config/bin/target
