@@ -77,8 +77,8 @@ bindsym $mod+s       scratchpad show
 bindsym $mod+Shift+s move scratchpad
 
 # --- Rueda del ratón: workspace siguiente/anterior del monitor ------------
-bindsym --whole-window $mod+button5 workspace next_on_output
-bindsym --whole-window $mod+button4 workspace prev_on_output
+bindsym --whole-window $mod+button5 workspace next
+bindsym --whole-window $mod+button4 workspace prev
 
 # --- Capturas (hyprshot → grim/slurp, ver bin/shot) ----------------------
 bindsym Print        exec ~/.config/sway/bin/shot output

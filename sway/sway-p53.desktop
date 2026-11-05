@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Sway (P53)
+Comment=Sway con iGPU Intel primaria y NVIDIA secundaria
+Exec=/home/h4ch3/.config/sway/bin/sway-launch
+Type=Application
+DesktopNames=sway

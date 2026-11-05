@@ -33,6 +33,7 @@ export XCURSOR_SIZE=24
 # Venía de tu Hyprland (bug de cursor con NVIDIA). Se mantiene por si alguna salida
 # cuelga de la dGPU; si todo va bien sin ella, puedes quitarla.
 export WLR_NO_HARDWARE_CURSORS=1
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Si Sway se niega a arrancar por el driver propietario, añade --unsupported-gpu
 exec sway --unsupported-gpu "$@"

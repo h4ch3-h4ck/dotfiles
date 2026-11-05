@@ -25,8 +25,6 @@ alias targetconf="nano ~/dev/config/dotfiles/waybar/scripts/target.sh"
 alias vpnconf="nano ~/dev/config/dotfiles/waybar/scripts/vpn_status.sh"
 
 # --- HYPRLAND & ESTÉTICA ---
-alias day="hyprctl hyprsunset identity"
-alias night="hyprctl hyprsunset temperature 4500"
 alias hyprconf="nano ~/.config/hypr/hyprland.conf"
 alias waybarconf="nano ~/.config/waybar/config"
 alias waybarstyle="nano ~/.config/waybar/style.css"
@@ -87,3 +85,15 @@ alias fin_boveda='rclone sync ~/Obsidian/MiBoveda bastion-sftp:ObsidianVault -P'
 
 # --- Apagar Equipo con seguridad ---
 alias off='read -q "?¿Apagar? [y/N] " && echo && sudo systemctl poweroff'
+
+# day/night: gammastep en Sway, hyprsunset en Hyprland
+day() {
+    if [ -n "$SWAYSOCK" ]; then pkill -x gammastep
+    else hyprctl hyprsunset identity; fi
+}
+night() {
+    if [ -n "$SWAYSOCK" ]; then
+        pkill -x gammastep
+        ( setsid gammastep -O 4500 >/dev/null 2>&1 & )
+    else hyprctl hyprsunset temperature 4500; fi
+}
