@@ -94,13 +94,13 @@ hl.env("LIBVA_DRIVER_NAME", "nvidia")
 
 hl.env("XDG_SESSION_TYPE", "wayland")
 
-hl.env("GBM_BACKEND", "nvidia-drm")
+-- hl.env("GBM_BACKEND", "nvidia-drm")
 
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+-- hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
 hl.env("NVD_BACKEND", "direct")
 
-hl.env("WLR_NO_HARDWARE_CURSORS", 1)
+-- hl.env("WLR_NO_HARDWARE_CURSORS", 1)
 
 --####################
 
@@ -285,7 +285,7 @@ hl.bind(mainMod .. " + " .. "return", hl.dsp.exec_cmd("ghostty"))
 
 hl.bind(mainMod .. " + " .. "Q", hl.dsp.window.close())
 
-hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "M", hl.dsp.exit())
+-- hl.bind(mainMod .. " + " .. "SHIFT" .. " + " .. "M", hl.dsp.exit())
 
 -- más seguro
 
