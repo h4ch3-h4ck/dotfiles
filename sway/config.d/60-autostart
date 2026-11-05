@@ -1,0 +1,17 @@
+# Autostart — equivalente a hl.on("hyprland.start") de hyprland.lua.
+# Cambios respecto a Hyprland:
+#   swaybg            → `output * bg` en 10-outputs
+#   hyprsunset        → no funciona fuera de Hyprland (ver README de migración)
+#   hypridle          → con hypridle.conf propio (sin hyprctl)
+#   hyprpolkitagent   → igual, es un servicio systemd de usuario
+
+# Entorno para portales y servicios D-Bus/systemd
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway SWAYSOCK
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK
+
+exec nm-applet --indicator
+exec blueman-applet
+exec waybar -c ~/.config/waybar/config-sway
+exec swaync
+exec hypridle -c ~/.config/sway/hypridle.conf
+exec systemctl --user start hyprpolkitagent

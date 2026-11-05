@@ -1,0 +1,98 @@
+# Atajos — traducción 1:1 de hypr/hyprland.lua (mainMod = SUPER = Mod4).
+# Donde Sway no tiene equivalente exacto, el comentario lo dice.
+
+# Mod + arrastre: izq = mover, der = redimensionar (hyprland: bindm 272/273)
+floating_modifier $mod normal
+
+# --- Aplicaciones ---------------------------------------------------------
+bindsym $mod+Return      exec ghostty
+bindsym $mod+e           exec nautilus
+bindsym $mod+b           exec firefox
+bindsym $mod+space       exec rofi -show drun
+bindsym $mod+r           exec rofi -show drun
+bindsym $mod+Shift+e     exec bemoji
+bindsym $mod+Shift+t     exec ~/.config/sway/bin/set-target
+bindsym $mod+l           exec hyprlock
+bindsym $mod+Shift+w     exec ~/.config/sway/bin/restart-waybar
+
+# --- Ventana --------------------------------------------------------------
+bindsym $mod+q           kill
+bindsym $mod+Shift+m     exit
+bindsym $mod+v           floating toggle
+bindsym $mod+f           fullscreen toggle
+bindsym $mod+j           layout toggle split
+bindsym $mod+Shift+r     reload
+bindsym $mod+Tab         exec ~/.config/sway/bin/cyclenext
+# $mod+p (pseudotile): sin equivalente en Sway. Se deja libre a propósito.
+
+# --- Foco (flechas) -------------------------------------------------------
+bindsym $mod+Left        focus left
+bindsym $mod+Right       focus right
+bindsym $mod+Up          focus up
+bindsym $mod+Down        focus down
+
+# --- Mover ventana (hyprland: swapwindow; Sway: move) ---------------------
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Down  move down
+
+# --- Ventana a otro monitor ----------------------------------------------
+bindsym $mod+Mod1+Left   move container to output HDMI-A-1
+bindsym $mod+Mod1+Right  move container to output eDP-1
+
+# --- Redimensionar (pasos de 100 px) -------------------------------------
+bindsym $mod+KP_Subtract       resize shrink width 100 px
+bindsym $mod+KP_Add            resize grow width 100 px
+bindsym $mod+Shift+KP_Subtract resize shrink height 100 px
+bindsym $mod+Shift+KP_Add      resize grow height 100 px
+
+# --- Workspaces: ir ------------------------------------------------------
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# --- Workspaces: mover ventana -------------------------------------------
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# --- Scratchpad (hyprland: special:magic) --------------------------------
+# Diferencia: Sway tiene una única pila de scratchpad, no workspaces especiales con nombre.
+bindsym $mod+s       scratchpad show
+bindsym $mod+Shift+s move scratchpad
+
+# --- Rueda del ratón: workspace siguiente/anterior del monitor ------------
+bindsym --whole-window $mod+button5 workspace next_on_output
+bindsym --whole-window $mod+button4 workspace prev_on_output
+
+# --- Capturas (hyprshot → grim/slurp, ver bin/shot) ----------------------
+bindsym Print        exec ~/.config/sway/bin/shot output
+bindsym Shift+Print  exec ~/.config/sway/bin/shot region
+bindsym $mod+Print   exec ~/.config/sway/bin/shot window
+
+# --- Multimedia (--locked = funciona con pantalla bloqueada) -------------
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym --locked XF86AudioMute        exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioMicMute     exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym --locked XF86MonBrightnessUp   exec brightnessctl s 10%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl s 10%-
+bindsym --locked XF86AudioNext  exec playerctl next
+bindsym --locked XF86AudioPause exec playerctl play-pause
+bindsym --locked XF86AudioPlay  exec playerctl play-pause
+bindsym --locked XF86AudioPrev  exec playerctl previous
