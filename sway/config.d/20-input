@@ -1,0 +1,17 @@
+# Entrada — equivalente al bloque `input` de hyprland.lua
+
+input type:keyboard {
+    xkb_layout es
+}
+
+# Hyprland trae tap-to-click activado por defecto; Sway no. Se activa para
+# conservar el comportamiento que ya tienes.
+input type:touchpad {
+    natural_scroll enabled
+    tap enabled
+}
+
+focus_follows_mouse yes
+
+# Cursor (hyprland: XCURSOR_SIZE=24 + `hyprctl setcursor Adwaita 24`)
+seat seat0 xcursor_theme Adwaita 24

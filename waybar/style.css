@@ -84,7 +84,8 @@ window#waybar {
   border-radius: 15px;
 }
 
-#workspaces button.active {
+#workspaces button.active,
+#workspaces button.focused {
     background: #313134; 
 }
 

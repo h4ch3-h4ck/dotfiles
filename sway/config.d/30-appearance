@@ -1,0 +1,21 @@
+# Aspecto — lo que Sway vanilla sí soporta de tu bloque general/decoration.
+# NO existen en Sway vanilla: rounding, blur, sombras, animaciones, degradado
+# de borde, opacidad por estado. (SwayFX los añade, con su propio ritmo de
+# cambios: no se usa aquí por el objetivo de estabilidad.)
+
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 2
+gaps outer 5
+
+# Colores: sólido #1e66f5 (segundo color de tu degradado) y #595959 inactivo.
+#                        borde    fondo    texto    indicador child_border
+client.focused           #1e66f5  #1e66f5  #ffffff  #1e66f5   #1e66f5
+client.focused_inactive  #595959  #595959  #ffffff  #595959   #595959
+client.unfocused         #595959  #595959  #ffffff  #595959   #595959
+client.urgent            #f38ba8  #f38ba8  #ffffff  #f38ba8   #f38ba8
+
+# Sin dwindle automático: las ventanas nuevas se parten según la orientación
+# del contenedor enfocado (auto = ancho→horizontal, alto→vertical).
+default_orientation auto
+workspace_layout default

@@ -1,0 +1,5 @@
+#!/bin/sh
+# SUPER+SHIFT+W: reinicia solo la Waybar de Sway (no toca la de Hyprland).
+pkill -f 'waybar -c .*config-sway'
+sleep 0.2
+setsid waybar -c "$HOME/.config/waybar/config-sway" >/dev/null 2>&1 &
