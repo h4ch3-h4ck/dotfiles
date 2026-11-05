@@ -1,0 +1,4 @@
+#!/bin/sh
+# Mismo comando que el atajo SUPER+SHIFT+T de Hyprland ($setTarget).
+# Va en script para no depender de cómo Sway trata comillas y `;` en `exec`.
+exec ghostty -e "ntitle target-editor; nano /home/h4ch3/.config/bin/target"

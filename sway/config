@@ -1,0 +1,7 @@
+# Sway — migración desde Hyprland (h4ch3 / ThinkPad P53)
+# Los atajos son los de hypr/hyprland.lua: ver config.d/40-keybinds.
+# Validar antes de arrancar:  sway --validate -c ~/.config/sway/config
+
+set $mod Mod4
+
+include ~/.config/sway/config.d/*

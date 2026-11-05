@@ -1,0 +1,22 @@
+#!/bin/sh
+# Lanza Sway con el entorno de sesión. Desde una TTY:  ~/.config/sway/bin/sway-launch
+#
+# Las variables NVIDIA son las MISMAS que usabas en Hyprland (paridad). En un
+# portátil híbrido (Intel + RTX 3000) forzarlas globalmente es lo primero que
+# hay que revisar si Sway no arranca o va con artefactos: pruébalo comentando
+# GBM_BACKEND y __GLX_VENDOR_LIBRARY_NAME, y fijando la iGPU con
+#   export WLR_DRM_DEVICES=/dev/dri/cardN   (N según `ls -l /dev/dri/by-path`)
+
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+export XCURSOR_SIZE=24
+
+export LIBVA_DRIVER_NAME=nvidia
+export GBM_BACKEND=nvidia-drm
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export NVD_BACKEND=direct
+export WLR_NO_HARDWARE_CURSORS=1
+
+# Si Sway se niega a arrancar con el driver propietario, añade --unsupported-gpu
+exec sway "$@"

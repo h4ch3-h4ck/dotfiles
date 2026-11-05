@@ -1,0 +1,22 @@
+#!/bin/sh
+# Equivalente a `cyclenext` de Hyprland: enfoca la siguiente ventana
+# (tiling y flotantes) del workspace actual, en orden de árbol, dando la vuelta.
+# Requiere: swaymsg, jq
+
+ws=$(swaymsg -t get_workspaces | jq -r '.[] | select(.focused) | .name')
+[ -n "$ws" ] || exit 0
+
+id=$(swaymsg -t get_tree | jq -r --arg ws "$ws" '
+  def leaves:
+    if ((.nodes | length) == 0 and (.floating_nodes | length) == 0)
+    then .
+    else (.nodes[], .floating_nodes[]) | leaves
+    end;
+  ([ .. | objects | select(.type? == "workspace" and .name? == $ws) ] | .[0]) as $w
+  | [ $w | leaves | select(.type == "con" or .type == "floating_con") ] as $l
+  | ($l | map(.focused) | index(true)) as $i
+  | if ($l | length) == 0 then empty
+    else $l[ ((($i // -1) + 1) % ($l | length)) ].id
+    end')
+
+[ -n "$id" ] && swaymsg "[con_id=$id] focus" >/dev/null

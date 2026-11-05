@@ -19,6 +19,8 @@ case "$choice" in
 "Logout")
 	if pgrep -x uwsm >/dev/null; then
 		uwsm stop
+	elif [ -n "$SWAYSOCK" ]; then
+		swaymsg exit
 	else
 		hyprctl dispatch exit
 	fi

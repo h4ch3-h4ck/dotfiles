@@ -1,0 +1,10 @@
+# Monitores — mismas posiciones que hyprland.lua.
+# HDMI-A-1 y el Lenovo L24i-40 comparten posición 0,0: es el mismo monitor
+# físico visto por dos identificadores distintos (puerto / descripción).
+
+output eDP-1 pos 1920 0
+output HDMI-A-1 pos 0 0
+output "Lenovo Group Limited L24i-40 UNP025M0" pos 0 0
+
+# Fondo (sustituye al `swaybg` del autostart de Hyprland)
+output * bg /home/h4ch3/Pictures/wallpaper.jpg fill
