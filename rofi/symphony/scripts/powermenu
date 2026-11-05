@@ -20,7 +20,7 @@ case "$choice" in
 	if pgrep -x uwsm >/dev/null; then
 		uwsm stop
 	else
-		hyprctl dispatch exit
+		hyprctl dispatch 'hl.dsp.exit()'
 	fi
 	;;
 esac
