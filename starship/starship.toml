@@ -1,34 +1,34 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
+palette = "term"
 format = "$username$hostname$directory$git_branch$git_status$cmd_duration$status$character"
 
-# Solo aparecen en root o por SSH: así sabes cuándo NO estás en local
 [username]
 show_always = false
-style_user = "#565f89"
-style_root = "bold #f7768e"
+style_user = "tenue"
+style_root = "bold fallo"
 format = "[$user]($style) "
 
 [hostname]
 ssh_only = true
-style = "bold #7dcfff"
+style = "bold aviso"
 format = "[$hostname]($style) "
 
 [directory]
-style = "bold #5faf87"
+style = "ruta"
 truncation_length = 3
 fish_style_pwd_dir_length = 1
 read_only = " ro"
-read_only_style = "bold #f7768e"
+read_only_style = "fallo"
 format = '[$path]($style)[$read_only]($read_only_style)'
 
 [git_branch]
-style = "#bb9af7"
+style = "rama"
 format = ' [$branch]($style)'
 
 [git_status]
-style = "#ff9e64"
+style = "aviso"
 format = '[$all_status$ahead_behind]($style)'
 ahead = " ⇡${count}"
 behind = " ⇣${count}"
@@ -40,16 +40,24 @@ conflicted = " =${count}"
 
 [cmd_duration]
 min_time = 3000
-style = "#565f89"
+style = "tenue"
 format = ' [$duration]($style)'
 
 [status]
 disabled = false
-style = "bold #f7768e"
+style = "fallo"
 format = ' [$status]($style)'
 
 [character]
 format = " $symbol "
-success_symbol = "[❯](bold #5faf87)"
-error_symbol = "[❯](bold #f7768e)"
-vicmd_symbol = "[❮](bold #bb9af7)"
+success_symbol = "[❯](bold acento)"
+error_symbol = "[❯](bold fallo)"
+vicmd_symbol = "[❮](rama)"
+
+[palettes.term]
+acento = "#5fd787"
+ruta   = "#5faf5f"
+rama   = "#4f8f5f"
+tenue  = "#3f6f4f"
+aviso  = "#d7af5f"
+fallo  = "#d75f5f"
