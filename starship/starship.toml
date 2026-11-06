@@ -1,64 +1,55 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = """
-[┌──](bold #bb9af7)\
-$username\
-[＠](bold #bb9af7)\
-$hostname\
-[──](bold #bb9af7)\
-$directory\
-$git_branch\
-$git_status\
-$status\
-\n\
-[└─](bold #bb9af7)\
-$character"""
+add_newline = false
+format = "$username$hostname$directory$git_branch$git_status$cmd_duration$status$character"
 
+# Solo aparecen en root o por SSH: así sabes cuándo NO estás en local
 [username]
-style_user = "bold #7dcfff"
+show_always = false
+style_user = "#565f89"
 style_root = "bold #f7768e"
-format = "[$user]($style)"
-show_always = true
+format = "[$user]($style) "
 
 [hostname]
-ssh_only = false
-style = "bold #9ece6a"
-format = "[$hostname]($style)"
+ssh_only = true
+style = "bold #7dcfff"
+format = "[$hostname]($style) "
 
 [directory]
-style = "bold #7aa2f7"
-format = "[ $path]($style)"
+style = "bold #5faf87"
 truncation_length = 3
-truncation_symbol = "…/"
-
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+fish_style_pwd_dir_length = 1
+read_only = " ro"
+read_only_style = "bold #f7768e"
+format = '[$path]($style)[$read_only]($read_only_style)'
 
 [git_branch]
-symbol = " "
-style = "bold #9ece6a"
-format = ' [ $symbol$branch]($style)'
+style = "#bb9af7"
+format = ' [$branch]($style)'
 
 [git_status]
-style = "bold #ff9e64"
+style = "#ff9e64"
 format = '[$all_status$ahead_behind]($style)'
-ahead = "⇡${count}"
-behind = "⇣${count}"
-modified = " ~${count}"
+ahead = " ⇡${count}"
+behind = " ⇣${count}"
+modified = " *${count}"
 staged = " +${count}"
 untracked = " ?${count}"
 deleted = " -${count}"
+conflicted = " =${count}"
+
+[cmd_duration]
+min_time = 3000
+style = "#565f89"
+format = ' [$duration]($style)'
 
 [status]
 disabled = false
 style = "bold #f7768e"
-format = '[ ✘]($style)'
-success_symbol = ""
+format = ' [$status]($style)'
 
 [character]
-success_symbol = "[❯](bold #9ece6a)"
+format = " $symbol "
+success_symbol = "[❯](bold #5faf87)"
 error_symbol = "[❯](bold #f7768e)"
 vicmd_symbol = "[❮](bold #bb9af7)"
