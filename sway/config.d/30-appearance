@@ -8,9 +8,9 @@ default_floating_border pixel 2
 gaps inner 2
 gaps outer 5
 
-# Colores: sólido #1e66f5 (segundo color de tu degradado) y #595959 inactivo.
+# Colores: activa con $wal_active (de wallust, ver 25-wallust); #595959 inactivas.
 #                        borde    fondo    texto    indicador child_border
-client.focused           #1e66f5  #1e66f5  #ffffff  #1e66f5   #1e66f5
+client.focused           $wal_active  $wal_active  #ffffff  $wal_active   $wal_active
 client.focused_inactive  #595959  #595959  #ffffff  #595959   #595959
 client.unfocused         #595959  #595959  #ffffff  #595959   #595959
 client.urgent            #f38ba8  #f38ba8  #ffffff  #f38ba8   #f38ba8

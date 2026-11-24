@@ -7,4 +7,4 @@ output HDMI-A-1 pos 0 0
 output "Lenovo Group Limited L24i-40 UNP025M0" pos 0 0
 
 # Fondo (sustituye al `swaybg` del autostart de Hyprland)
-output * bg /home/h4ch3/Pictures/wallpaper.jpg fill
+output * bg "/home/h4ch3/Imágenes/fondos/the-lone-samurai.png" fill

@@ -1,0 +1,12 @@
+# Wallust — genera la paleta a partir del fondo y la escribe en las plantillas.
+# Ghostty NO se toca a propósito: mantiene su tema (TokyoNight Moon).
+# Uso: wallust run -s <imagen>   (-s: no cambiar los colores de los terminales abiertos)
+backend = "fastresize"
+color_space = "lch"
+palette = "dark16"
+check_contrast = true
+
+[templates]
+waybar = { template = "colors-waybar.css", target = "~/.config/waybar/wallust/colors-waybar.css" }
+rofi   = { template = "colors-rofi.rasi",  target = "~/.config/rofi/wallust/colors-rofi.rasi" }
+sway   = { template = "colors-sway",       target = "~/.config/sway/config.d/25-wallust" }

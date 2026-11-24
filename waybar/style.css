@@ -1,3 +1,5 @@
+@import "wallust/colors-waybar.css";
+
 * {
     /* `otf-font-awesome` and SpaceMono erd Font are required to be installed for icons */
     font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -6,8 +8,8 @@
 }
 
 window#waybar {
-    background: rgba(26, 27, 38, 0.75);
-    color: #c0caf5;
+    background: alpha(@background, 0.75);
+    color: @foreground;
     font-family: "JetBrainsMono Nerd Font";
     transition: background-color .5s;
 }
@@ -16,7 +18,7 @@ window#waybar {
 .modules-center,
 .modules-right
 {
-    background: rgba(0, 0, 8, .7);
+    background: alpha(@background, 0.85);
     margin: 5px 5px;
     padding: 0 5px;
     border-radius: 15px;
@@ -68,7 +70,7 @@ window#waybar {
 #power-profiles-daemon:hover,
 #language:hover,
 #mpd:hover {
-    background: rgba(26, 27, 38, 0.9);
+    background: alpha(@color0, 0.9);
 }
 
 
@@ -79,19 +81,19 @@ window#waybar {
     feather;
   font-weight: 900;
   font-size: 13pt;
-  color: #c0caf5;
+  color: @foreground;
   border:none;
   border-radius: 15px;
 }
 
 #workspaces button.active,
 #workspaces button.focused {
-    background: #313134; 
+    background: @color2;
 }
 
 #workspaces button:hover {
-  background: #11111b;
-  color: #cdd6f4;
+  background: @color0;
+  color: @foreground;
   box-shadow: none;
 }
 
@@ -102,7 +104,7 @@ window#waybar {
     transition: color .5s;
 }
 #custom-arch:hover {
-    color: #1793d1;
+    color: @color12;
 }
 
 /* --- Estilos personalizados para Hacking (heredados de Parrot) --- */
@@ -111,21 +113,21 @@ window#waybar {
     padding: 0 10px;
     margin: 0 5px;
     border-radius: 8px;
-    background-color: #1e1e2e; /* Color oscuro Catppuccin */
+    background-color: @background; /* wallust */
 }
 
 #custom-target {
-    color: #f38ba8; /* Rojo */
-    border: 1px solid #f38ba8;
+    color: @color12; /* rojo de la paleta */
+    border: 1px solid @color12;
 }
 
 #custom-vpn {
-    color: #a6e3a1; /* Verde */
-    border: 1px solid #a6e3a1;
+    color: @color14; /* crema de la paleta */
+    border: 1px solid @color14;
 }
 
 /* Efecto hover igual al resto de tus módulos */
 #custom-target:hover,
 #custom-vpn:hover {
-    background: rgba(26, 27, 38, 0.9);
+    background: alpha(@color0, 0.9);
 }

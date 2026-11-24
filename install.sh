@@ -66,6 +66,9 @@ create_symlinks() {
     # Rofi
     make_link "$DOTFILES_DIR/rofi"                       "$HOME/.config/rofi"
 
+    # Wallust (paleta del fondo → Waybar, Rofi y borde activo de Sway; Ghostty no)
+    make_link "$DOTFILES_DIR/wallust"                     "$HOME/.config/wallust"
+
     # btop
     make_link "$DOTFILES_DIR/btop"                        "$HOME/.config/btop"
 
