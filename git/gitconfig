@@ -1,7 +1,12 @@
 [user]
-	name = Heriberto Ribera
+	name = h4ch3-h4ck
 	email = hriberaa@gmail.com
 [pull]
 	rebase = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[alias]
+	s = status -s
+	c = commit -m
+	p = push origin master
+	pl = pull origin master

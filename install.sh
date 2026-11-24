@@ -47,11 +47,8 @@ make_link() {
 create_symlinks() {
     info "Creando symlinks...\n"
 
-    # Hyprland (hyprland.conf + hyprlock.conf + hypridle.conf + wallust/)
-    make_link "$DOTFILES_DIR/hypr/hyprland.conf"          "$HOME/.config/hypr/hyprland.conf"
-    make_link "$DOTFILES_DIR/hypr/hyprlock.conf"          "$HOME/.config/hypr/hyprlock.conf"
-    make_link "$DOTFILES_DIR/hypr/hypridle.conf"          "$HOME/.config/hypr/hypridle.conf"
-    make_link "$DOTFILES_DIR/hypr/wallust"                "$HOME/.config/hypr/wallust"
+    # Hyprland (carpeta entera: hyprland.conf/.lua, hyprlock*.conf, hypridle.conf)
+    make_link "$DOTFILES_DIR/hypr"                        "$HOME/.config/hypr"
 
     # Waybar
     make_link "$DOTFILES_DIR/waybar"                      "$HOME/.config/waybar"
@@ -66,7 +63,10 @@ create_symlinks() {
     # Rofi
     make_link "$DOTFILES_DIR/rofi"                       "$HOME/.config/rofi"
 
-    # Wallust (paleta del fondo → Waybar, Rofi y borde activo de Sway; Ghostty no)
+    # swaync (notificaciones; colores de la paleta de wallust vía waybar)
+    make_link "$DOTFILES_DIR/swaync"                      "$HOME/.config/swaync"
+
+    # Wallust (paleta del fondo → Waybar, Rofi, swaync, hyprlock, borde de Sway y fondo de Ghostty)
     make_link "$DOTFILES_DIR/wallust"                     "$HOME/.config/wallust"
 
     # btop
@@ -75,11 +75,17 @@ create_symlinks() {
     # Git
     make_link "$DOTFILES_DIR/git/gitconfig"               "$HOME/.gitconfig"
 
-    # Zsh
+    # Zsh (zshrc carga zshrc.linux y zshrc.alias.linux desde el repo vía $CONFIG_PATH;
+    # lo privado va en ~/.zshrc.local, ver zsh/zshrc.local.example)
     make_link "$DOTFILES_DIR/zsh/zshrc"                   "$HOME/.zshrc"
-    make_link "$DOTFILES_DIR/zsh/zshrc.linux"             "$HOME/.zshrc.linux"
-    make_link "$DOTFILES_DIR/zsh/zshrc.alias"             "$HOME/.zshrc.alias"
-    make_link "$DOTFILES_DIR/zsh/zshrc.alias.linux"       "$HOME/.zshrc.alias.linux"
+
+    # Zellij
+    make_link "$DOTFILES_DIR/zellij"                      "$HOME/.config/zellij"
+
+    # Entradas .desktop que ocultan apps del lanzador (NoDisplay=true)
+    for f in "$DOTFILES_DIR"/applications/*.desktop; do
+        make_link "$f" "$HOME/.local/share/applications/$(basename "$f")"
+    done
 
     echo ""
     ok "Symlinks creados."

@@ -70,7 +70,9 @@
     "format": " {temperatureC}°C"
   },
   "sway/language": {
-    "format": "  {short}"
+    "format": "󰌌 {short}",
+    "min-length": 5,
+    "tooltip-format": "{long}"
   },
   "backlight": {
     "format": "{percent}% {icon}",

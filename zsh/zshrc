@@ -15,3 +15,11 @@ source "$CONFIG_PATH/zsh/zshrc.alias.linux"
 
 # Config privada de esta máquina (IPs, hosts, usuarios): fuera del repo
 [[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+export LIBVIRT_DEFAULT_URI="qemu:///system"
+export TERM=xterm-256color
+
+# Bóveda de Obsidian: inicio_boveda / fin_boveda vienen de ~/.config/boveda.sh
+export BOVEDA_ABRIR=obsidian
+unalias inicio_boveda fin_boveda 2>/dev/null
+[[ -f "$HOME/.config/boveda.sh" ]] && source "$HOME/.config/boveda.sh"

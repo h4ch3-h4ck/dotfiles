@@ -10,4 +10,5 @@ check_contrast = true
 waybar = { template = "colors-waybar.css", target = "~/.config/waybar/wallust/colors-waybar.css" }
 rofi   = { template = "colors-rofi.rasi",  target = "~/.config/rofi/wallust/colors-rofi.rasi" }
 ghostty = { template = "colors-ghostty.conf", target = "~/.config/ghostty/wallust.conf" }
+hyprlock = { template = "colors-hyprlock.conf", target = "~/.config/hypr/hyprlock-wallust.conf" }
 sway   = { template = "colors-sway",       target = "~/.config/sway/config.d/25-wallust" }

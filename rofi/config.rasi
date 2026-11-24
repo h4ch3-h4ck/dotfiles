@@ -8,13 +8,11 @@ configuration {
     terminal:            "ghostty";
 }
 
-* {
-    bg:      #0a0e0a;
-    bg-sel:  #0d2818;
-    fg:      #00ff9c;
-    fg-dim:  #4d7a63;
-    accent:  #00ff9c;
+/* Colores (bg, bg-sel, fg, fg-dim, accent, item-border): generados por wallust
+   a partir del fondo; ver wallust/templates/colors-rofi.rasi */
+@import "wallust/colors-rofi.rasi"
 
+* {
     background-color: transparent;
     text-color:       @fg;
     border-color:     @accent;
@@ -107,7 +105,7 @@ element {
     children:         [element-icon, element-text];
     cursor:           pointer;
     border:           1px;
-    border-color:     #14261c;
+    border-color:     @item-border;
     border-radius:    2px;
 }
 

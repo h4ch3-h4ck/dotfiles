@@ -27,6 +27,14 @@ background: rgba(0,0,0,0.7);
 foreground: #FFB0B6;
 border-color: #C0494C;
 
+/* Variables del tema principal (rofi/config.rasi) */
+bg:          #140D0D;
+bg-sel:      #492A2A;
+fg:          #f8f4ec;
+fg-dim:      #AD5E63;
+accent:      #C0494C;
+item-border: #331D1D;
+
 color0: #3F3738;
 color1: #5F3E3F;
 color2: #714041;
