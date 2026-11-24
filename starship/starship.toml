@@ -51,13 +51,15 @@ format = ' [$status]($style)'
 [character]
 format = " $symbol "
 success_symbol = "[❯](bold acento)"
-error_symbol = "[❯](bold fallo)"
+error_symbol = "[✗](bold fallo)"
 vicmd_symbol = "[❮](rama)"
 
 [palettes.term]
-acento = "#5fd787"
-ruta   = "#5faf5f"
-rama   = "#4f8f5f"
-tenue  = "#3f6f4f"
+# Rojos a juego con el fondo samurai-red (antes, verdes: acento #5fd787,
+# ruta #5faf5f, rama #4f8f5f, tenue #3f6f4f, fallo #d75f5f)
+acento = "#e0555a"
+ruta   = "#c0494c"
+rama   = "#d4878a"
+tenue  = "#7a4a4c"
 aviso  = "#d7af5f"
-fallo  = "#d75f5f"
+fallo  = "#ff7a45"

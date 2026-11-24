@@ -31,4 +31,14 @@ window)
 esac
 
 wl-copy < "$file"
-command -v notify-send >/dev/null && notify-send "Captura guardada" "$file"
+# Notificación con miniatura y acciones (en segundo plano: -A espera la respuesta)
+command -v notify-send >/dev/null || exit 0
+(
+    action=$(notify-send -a "Capturas" -i "$file" -h "string:image-path:$file" \
+        -A open="Abrir" -A folder="Carpeta" \
+        "󰄀  Captura guardada" "$(basename "$file") · copiada al portapapeles")
+    case "$action" in
+        open)   xdg-open "$file" ;;
+        folder) xdg-open "$dir" ;;
+    esac
+) >/dev/null 2>&1 &

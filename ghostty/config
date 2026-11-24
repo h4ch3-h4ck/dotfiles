@@ -1,6 +1,10 @@
 theme = TokyoNight Moon
+# Fondo, cursor y selección del wallpaper (wallust); paleta ANSI de TokyoNight
+config-file = ?wallust.conf
+# Texto normal en blanco cálido (TokyoNight lo trae azulado: #c8d3f5)
+foreground = #f8f4ec
 cursor-opacity = 1
-background-opacity = 0.97
+background-opacity = 0.90
 window-padding-x = 2
 keybind = shift+enter=text:\n
 font-family = JetBrainsMono Nerd Font
