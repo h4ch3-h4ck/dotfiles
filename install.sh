@@ -39,7 +39,7 @@ make_link() {
         mv "$dst" "${dst}.bak"
     fi
     mkdir -p "$(dirname "$dst")"
-    ln -sf "$src" "$dst"
+    ln -sfn "$src" "$dst"
     ok "  $(basename "$dst")"
 }
 
