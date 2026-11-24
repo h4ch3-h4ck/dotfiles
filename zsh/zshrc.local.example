@@ -1,0 +1,10 @@
+# Copia a ~/.zshrc.local (chmod 600) y rellena con tus datos.
+# Ese fichero NO se sube al repo: aquí van IPs, usuarios y hosts privados.
+
+# --- SERVER HOME-LAB ---
+# HOMELAB=100.x.y.z   # IP de Tailscale del servidor
+# alias pihole="xdg-open http://$HOMELAB:8082/admin"
+# alias portainer="xdg-open http://$HOMELAB:9000"
+# alias kuma="xdg-open http://$HOMELAB:3001"
+# alias nextcloud="xdg-open http://$HOMELAB:8080"
+# alias mount-nas="sudo mount -t cifs //$HOMELAB/NAS /mnt/nas -o username=<usuario>,uid=1000,gid=1000"

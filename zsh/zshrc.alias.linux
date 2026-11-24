@@ -69,19 +69,8 @@ alias top="btop"
 alias df="df -h"
 alias free="free -h"
 
-# --- SERVER HOME-LAB ---
-alias pihole='xdg-open http://100.x.y.z:8082/admin'
-alias portainer='xdg-open http://100.x.y.z:9000'
-alias kuma='xdg-open http://100.x.y.z:3001'
-alias nextcloud='xdg-open http://100.x.y.z:8080'
-alias mount-nas='sudo mount -t cifs //100.x.y.z/NAS /mnt/nas -o username=<usuario>,uid=1000,gid=1000'
-
 # --- APPS ---
 alias packettracer='/usr/lib/packettracer/packettracer.AppImage & disown'
-
-# --- OBSIDIAN VAULT SYNC ---
-alias inicio_boveda='rclone sync <remoto>:ObsidianVault ~/Obsidian/MiBoveda -P && xdg-open "obsidian://open?vault=MiBoveda" & disown'
-alias fin_boveda='rclone sync ~/Obsidian/MiBoveda <remoto>:ObsidianVault -P'
 
 # --- Apagar Equipo con seguridad ---
 alias off='read -q "?¿Apagar? [y/N] " && echo && sudo systemctl poweroff'

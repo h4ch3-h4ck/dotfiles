@@ -11,5 +11,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 # Load aliases
-source "$CONFIG_PATH/zsh/zshrc.alias.linux
-"
+source "$CONFIG_PATH/zsh/zshrc.alias.linux"
+
+# Config privada de esta máquina (IPs, hosts, usuarios): fuera del repo
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
