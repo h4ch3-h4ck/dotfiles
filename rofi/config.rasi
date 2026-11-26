@@ -1,7 +1,7 @@
 configuration {
     modi:                "drun,run,filebrowser";
     show-icons:          true;
-    icon-theme:          "Slot-Beauty-Dark-Icons";
+    icon-theme:          "Flat-Remix-Blue-Dark";
     drun-display-format: "{name}";
     display-drun:        "";
     font:                "JetBrains Mono 14";
