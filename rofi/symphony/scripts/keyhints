@@ -1,71 +1,67 @@
 #!/bin/bash
-# keyhints - native 2-column rofi keybindings guide
+# Guía de atajos: se genera leyendo los bindsym de la config de Sway, así nunca
+# se queda desactualizada. Las secciones salen de los "# --- Título ---" y las
+# descripciones del diccionario de desc(); lo que no esté ahí se muestra tal cual.
 
-if pidof rofi >/dev/null; then
-  pkill rofi
-  exit
-fi
+pidof rofi >/dev/null && { pkill -x rofi; exit; }
 
-sep() { echo "──  $1"; echo ""; }
-bind() { printf "  %-22s  %s\n" "$1" "$2"; }
+conf="${SWAY_KEYBINDS:-$HOME/.config/sway/config.d/40-keybinds}"
 
-{
-sep "󰀻  APLICACIONES"
-bind "Super + Enter"        "Terminal"
-bind "Super + E"            "Explorador de archivos"
-bind "Super + A"            "Lanzador (Spotlight)"
-bind "Super + Space"        "Launchpad"
-bind "Super + S"            "Guía de atajos"
-bind "Super + V"            "Historial portapapeles"
-
-sep "  VENTANAS"
-bind "Super + Q"            "Cerrar ventana"
-bind "Alt + F4"             "Cerrar ventana"
-bind "Super + F"            "Pantalla completa"
-bind "Super + Shift+Space"  "Flotar / DesFlotar"
-bind "Super + ← ↑ ↓ →"     "Mover foco"
-bind "Super + H J K L"      "Mover foco (vim)"
-bind "Super + Shift + ↑↓←→" "Mover ventana"
-bind "Super + Ctrl  + ↑↓←→" "Redimensionar"
-
-sep "  MINIMIZAR"
-bind "Super + M"            "Minimizar ventana activa"
-bind "Super + N"            "Restaurar última ventana"
-bind "Super + Ctrl + M"     "Minimizar todas"
-bind "Super + Ctrl + N"     "Restaurar todas"
-
-echo ""
-echo ""
-echo ""
-sep "  WORKSPACES"
-bind "Super + 1 … 9 / 0"   "Ir al workspace"
-bind "Super + Shift + 1…9"  "Mover ventana al workspace"
-bind "Super + Scroll ↑↓"    "Navegar workspaces"
-bind "Super + Tab"          "Vista Exposé"
-bind "Alt + Tab"            "Cambiar ventana activa"
-
-sep "  TEMAS Y FONDOS"
-bind "Super + F1"           "Selector de tema"
-bind "Super + W"            "Selector de wallpaper"
-
-sep "  CAPTURAS"
-bind "Print"                "Área → portapapeles"
-bind "Shift + Print"        "Pantalla completa → archivo"
-bind "Ctrl  + Print"        "Pantalla completa → portapapeles"
-
-sep "  MEDIOS"
-bind "XF86AudioRaiseVolume" "Subir volumen"
-bind "XF86AudioLowerVolume" "Bajar volumen"
-bind "XF86AudioMute"        "Silenciar"
-bind "XF86AudioPlay"        "Play / Pausa"
-bind "XF86MonBrightness+"   "Brillo +"
-bind "XF86MonBrightness-"   "Brillo -"
-
-sep "  SISTEMA"
-bind "Super + L"            "Bloquear pantalla"
-bind "Super + Delete"       "Bloquear pantalla"
-bind "Super + Shift + E"    "Menú de energía"
-bind "Super + Shift + M"    "Cerrar sesión"
-} | rofi -dmenu -i -p "  buscar atajo" \
-         -no-custom \
-         -config ~/.config/rofi/config-keybinds.rasi
+awk '
+function pretty(k) {
+	gsub(/\$mod/, "Super", k); gsub(/Mod1/, "Alt", k); gsub(/\+/, " + ", k)
+	gsub(/KP_Subtract/, "Num −", k); gsub(/KP_Add/, "Num +", k)
+	gsub(/button4/, "Rueda ↑", k); gsub(/button5/, "Rueda ↓", k)
+	gsub(/Left/, "←", k); gsub(/Right/, "→", k); gsub(/Up/, "↑", k); gsub(/Down/, "↓", k)
+	gsub(/Return/, "Enter", k); gsub(/space/, "Espacio", k); gsub(/Print/, "ImprPant", k)
+	gsub(/XF86Audio|XF86MonBrightness/, "", k)
+	return k
+}
+function desc(c,   n) {
+	sub(/^exec +/, "", c); sub(/ --gtk-single-instance=false/, "", c)
+	sub(/^~\/\.config\/[a-z]+\/(bin|symphony\/scripts)\//, "", c)
+	n = split("ghostty|Terminal;nautilus|Archivos;firefox|Firefox;rofi -show drun|Lanzador de aplicaciones;" \
+		"bemoji|Emojis;set-target|Fijar objetivo (barra);hyprlock|Bloquear pantalla;restart-waybar|Reiniciar Waybar;" \
+		"kill|Cerrar ventana;exit|Salir de Sway;floating toggle|Flotante sí/no;fullscreen toggle|Pantalla completa;" \
+		"layout toggle split|Cambiar división;reload|Recargar Sway;cyclenext|Siguiente ventana;" \
+		"focus left|Foco a la izquierda;focus right|Foco a la derecha;focus up|Foco arriba;focus down|Foco abajo;" \
+		"move left|Mover ventana ←;move right|Mover ventana →;move up|Mover ventana ↑;move down|Mover ventana ↓;" \
+		"resize shrink width 100 px|Estrechar;resize grow width 100 px|Ensanchar;" \
+		"resize shrink height 100 px|Acortar;resize grow height 100 px|Alargar;" \
+		"scratchpad show|Mostrar scratchpad;move scratchpad|Enviar al scratchpad;" \
+		"workspace next|Workspace siguiente;workspace prev|Workspace anterior;" \
+		"shot output|Captura del monitor;shot region|Captura de una zona;shot window|Captura de la ventana;" \
+		"clipboard|Historial del portapapeles;powermenu|Menú de apagado;power-profiles|Perfil de energía;" \
+		"rofibeats|Música (radios / carpeta);rofisearch|Buscar en Google;wifi|Redes Wi-Fi;keyhints|Esta guía", D, ";")
+	for (i = 1; i <= n; i++) { split(D[i], kv, "|"); if (c == kv[1]) return kv[2] }
+	if (c ~ /^move container to output/) return "Ventana al monitor " substr(c, 26)
+	if (c ~ /set-volume.*\+$/) return "Subir volumen"
+	if (c ~ /set-volume.*-$/) return "Bajar volumen"
+	if (c ~ /set-mute @DEFAULT_AUDIO_SINK/) return "Silenciar"
+	if (c ~ /set-mute @DEFAULT_AUDIO_SOURCE/) return "Silenciar micrófono"
+	if (c ~ /brightnessctl.*\+$/) return "Subir brillo"
+	if (c ~ /brightnessctl.*-$/) return "Bajar brillo"
+	if (c ~ /playerctl next/) return "Siguiente pista"
+	if (c ~ /playerctl previous/) return "Pista anterior"
+	if (c ~ /playerctl play-pause/) return "Reproducir / pausa"
+	return c
+}
+/^# --- / {
+	t = $0; sub(/^# --- */, "", t); sub(/ *-+ *$/, "", t); sub(/ *\(.*\)/, "", t)
+	if (secs++) print ""
+	print "──  " t; ws = 0; next
+}
+/^bindsym/ {
+	line = $0; label = ""
+	sub(/^bindsym +/, "", line)
+	while (line ~ /^--[a-z-]+ /) sub(/^--[a-z-]+ +/, "", line)
+	key = line; sub(/ .*/, "", key); cmd = line; sub(/^[^ ]+ +/, "", cmd)
+	if (cmd ~ /workspace number [0-9]+$/) {
+		if (ws++) next
+		key = (key ~ /Shift/) ? "$mod+Shift+1…0" : "$mod+1…0"
+		label = (cmd ~ /^move/) ? "Mover ventana al workspace" : "Ir al workspace"
+	}
+	if (label == "") label = desc(cmd)
+	printf "  %-26s  %s\n", pretty(key), label
+}' "$conf" |
+	rofi -dmenu -i -p "" -config "$HOME/.config/rofi/symphony/custom-rofi/config-keybinds.rasi" >/dev/null

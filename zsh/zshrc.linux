@@ -51,4 +51,5 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 # CTRL+R: Previsualiza el comando completo del historial
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind 'ctrl-/:toggle-preview'"
 
-setwall() { pkill swaybg; swaybg -i "$1" -m fill & pkill waybar; waybar > /dev/null 2>&1 & }
+# Cambiar el fondo y adaptar el tema (ver sway/bin/setwall). Sin argumentos: menú con Rofi.
+setwall() { ~/.config/sway/bin/setwall "$@"; }

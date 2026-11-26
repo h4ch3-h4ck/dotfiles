@@ -24,9 +24,9 @@ alias starshipconf="nano ~/.config/starship.toml"
 alias targetconf="nano ~/dev/config/dotfiles/waybar/scripts/target.sh"
 alias vpnconf="nano ~/dev/config/dotfiles/waybar/scripts/vpn_status.sh"
 
-# --- HYPRLAND & ESTÉTICA ---
-alias hyprconf="nano ~/.config/hypr/hyprland.conf"
-alias waybarconf="nano ~/.config/waybar/config"
+# --- ESTÉTICA ---
+alias swayconf="nano ~/.config/sway/config.d/40-keybinds"
+alias waybarconf="nano ~/.config/waybar/config-sway"
 alias waybarstyle="nano ~/.config/waybar/style.css"
 
 # --- PANTALLA / BRILLO ---
@@ -75,14 +75,11 @@ alias packettracer='/usr/lib/packettracer/packettracer.AppImage & disown'
 # --- Apagar Equipo con seguridad ---
 alias off='read -q "?¿Apagar? [y/N] " && echo && sudo systemctl poweroff'
 
-# day/night: gammastep en Sway, hyprsunset en Hyprland
+# day/night: filtro de luz cálida con gammastep
 day() {
-    if [ -n "$SWAYSOCK" ]; then pkill -x gammastep
-    else hyprctl hyprsunset identity; fi
+    pkill -x gammastep
 }
 night() {
-    if [ -n "$SWAYSOCK" ]; then
-        pkill -x gammastep
-        ( setsid gammastep -O 4500 >/dev/null 2>&1 & )
-    else hyprctl hyprsunset temperature 4500; fi
+    pkill -x gammastep
+    ( setsid gammastep -O 4500 >/dev/null 2>&1 & )
 }

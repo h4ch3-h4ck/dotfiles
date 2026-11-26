@@ -1,0 +1,57 @@
+#!/bin/bash
+# setwall — cambia el fondo de Sway y adapta todo el tema a él.
+#
+#   setwall <imagen>   usa esa imagen
+#   setwall            elige una de ~/Imágenes/fondos con Rofi
+#
+# Pasos: convierte a PNG si hace falta (swaybg no lee WebP), pone el fondo y lo
+# guarda en sway/config.d/10-outputs, regenera la paleta con wallust (-s: sin
+# tocar los colores de los terminales abiertos), actualiza el fondo de Rofi y
+# recarga Sway, Waybar y swaync.
+set -euo pipefail
+
+dir="$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")/fondos"
+outputs="$(readlink -f "$HOME/.config/sway/config.d/10-outputs")"
+
+die() { echo "setwall: $*" >&2; command -v notify-send >/dev/null && notify-send -a setwall "No se pudo cambiar el fondo" "$*"; exit 1; }
+
+img="${1:-}"
+if [[ -z "$img" ]]; then
+    [[ -d "$dir" ]] || die "no existe $dir"
+    # Lista sin las copias .png que genera este script cuando ya existe el original
+    choice=$(find "$dir" -maxdepth 1 -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) -printf '%f\n' |
+        sort | rofi -dmenu -i -p "Fondo")
+    [[ -n "$choice" ]] || exit 0
+    img="$dir/$choice"
+fi
+
+img="$(readlink -f "$img")"
+[[ -f "$img" ]] || die "no existe la imagen: $img"
+
+case "${img,,}" in
+    *.png|*.jpg|*.jpeg) ;;
+    *)
+        png="${img%.*}.png"
+        [[ -f "$png" ]] || magick "$img" "$png" || die "no se pudo convertir $img a PNG"
+        img="$png"
+        ;;
+esac
+
+# Fondo en vivo y guardado en la config
+swaymsg "output * bg \"$img\" fill" >/dev/null
+grep -q '^output \* bg ' "$outputs" || die "no encuentro la línea 'output * bg' en $outputs"
+tmp="$(mktemp)"
+awk -v l="output * bg \"$img\" fill" '/^output \* bg /{print l; next} {print}' "$outputs" >"$tmp" && cat "$tmp" >"$outputs"
+rm -f "$tmp"
+
+# Paleta y fondo de Rofi
+wallust run -s -q "$img"
+ln -sfn "$img" "$HOME/.config/rofi/.current_wallpaper"
+
+# Recargar lo que usa la paleta
+swaymsg reload >/dev/null
+pkill -SIGUSR2 -x waybar 2>/dev/null || true
+swaync-client -rs >/dev/null 2>&1 || true
+
+command -v notify-send >/dev/null && notify-send -a setwall -i "$img" "Fondo cambiado" "$(basename "$img")"
+echo "Fondo: $img"

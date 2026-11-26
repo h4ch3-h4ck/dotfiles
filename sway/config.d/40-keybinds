@@ -1,4 +1,4 @@
-# Atajos — traducción 1:1 de hypr/hyprland.lua (mainMod = SUPER = Mod4).
+# Atajos (mainMod = SUPER = Mod4). Vienen de la antigua config de Hyprland.
 # Donde Sway no tiene equivalente exacto, el comentario lo dice.
 
 # Mod + arrastre: izq = mover, der = redimensionar (hyprland: bindm 272/273)
@@ -23,7 +23,16 @@ bindsym $mod+f           fullscreen toggle
 bindsym $mod+j           layout toggle split
 bindsym $mod+Shift+r     reload
 bindsym $mod+Tab         exec ~/.config/sway/bin/cyclenext
-# $mod+p (pseudotile): sin equivalente en Sway. Se deja libre a propósito.
+# $mod+p (pseudotile) no tiene equivalente en Sway: se usa para el perfil de energía.
+
+# --- Menús de Rofi (scripts en ~/.config/rofi/symphony/scripts) ---------
+bindsym $mod+c           exec ~/.config/rofi/symphony/scripts/clipboard
+bindsym $mod+x           exec ~/.config/rofi/symphony/scripts/powermenu
+bindsym $mod+p           exec ~/.config/rofi/symphony/scripts/power-profiles
+bindsym $mod+m           exec ~/.config/rofi/symphony/scripts/rofibeats
+bindsym $mod+g           exec ~/.config/rofi/symphony/scripts/rofisearch
+bindsym $mod+w           exec ~/.config/rofi/symphony/scripts/wifi
+bindsym $mod+h           exec ~/.config/rofi/symphony/scripts/keyhints
 
 # --- Foco (flechas) -------------------------------------------------------
 bindsym $mod+Left        focus left

@@ -1,9 +1,9 @@
 #!/bin/bash
 # rofi music player - plays online streams or local files
 
-music_dir="$HOME/Music"
-icon="$HOME/.config/rofi/music.png"
-rofi_dir="$HOME/.config/rofi/custom-rofi"
+music_dir="$(xdg-user-dir MUSIC 2>/dev/null || echo "$HOME/Music")"
+icon="$HOME/.config/rofi/symphony/music.png"
+rofi_dir="$HOME/.config/rofi/symphony/custom-rofi"
 
 declare -A stations=(
   ["Radio - Lofi Girl"]="https://play.streamafrica.net/lofiradio"

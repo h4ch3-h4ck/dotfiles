@@ -13,5 +13,8 @@ exec nm-applet --indicator
 exec blueman-applet
 exec waybar -c ~/.config/waybar/config-sway
 exec swaync
+# Historial del portapapeles para Super+C (texto e imágenes)
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
 exec hypridle -c ~/.config/sway/hypridle.conf
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

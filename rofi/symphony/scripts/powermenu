@@ -1,28 +1,21 @@
 #!/bin/bash
+# Menú de apagado. Super+X en Sway.
 
-scrDir="$HOME/.config/hypr/scripts"
+pidof rofi >/dev/null && { pkill -x rofi; exit; }
 
-options="Shutdown\nReboot\nSuspend\nLogout"
+lock="󰌾  Bloquear"
+suspend="󰤄  Suspender"
+logout="󰍃  Cerrar sesión"
+reboot="󰜉  Reiniciar"
+shutdown="󰐥  Apagar"
 
-choice=$(echo -e "$options" | rofi -dmenu -p "" -config "$HOME/.config/rofi/custom-rofi/config-powermenu.rasi")
+choice=$(printf '%s\n' "$lock" "$suspend" "$logout" "$reboot" "$shutdown" |
+	rofi -dmenu -i -p "" -config "$HOME/.config/rofi/symphony/custom-rofi/config-powermenu.rasi")
 
 case "$choice" in
-"Shutdown")
-	"$scrDir/graceful-shutdown"
-	;;
-"Reboot")
-	"$scrDir/graceful-reboot"
-	;;
-"Suspend")
-	systemctl suspend
-	;;
-"Logout")
-	if pgrep -x uwsm >/dev/null; then
-		uwsm stop
-	elif [ -n "$SWAYSOCK" ]; then
-		swaymsg exit
-	else
-		hyprctl dispatch 'hl.dsp.exit()'
-	fi
-	;;
+"$lock") pidof hyprlock >/dev/null || hyprlock ;;
+"$suspend") systemctl suspend ;;
+"$logout") swaymsg exit ;;
+"$reboot") systemctl reboot ;;
+"$shutdown") systemctl poweroff ;;
 esac

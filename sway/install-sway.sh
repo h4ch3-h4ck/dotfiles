@@ -1,6 +1,5 @@
 #!/bin/bash
 # Enlaza la config de Sway del repo en ~/.config (mismo patrón que install.sh).
-# No toca Hyprland: ambos entornos conviven hasta que decidas quitar Hyprland.
 # Waybar ya se enlaza completo desde install.sh (incluye config-sway y modules-sway.json).
 
 set -e
@@ -32,7 +31,7 @@ echo
 echo "Paquetes necesarios (Arch):"
 echo "  sudo pacman -S --needed sway swayidle xdg-desktop-portal-wlr xdg-desktop-portal-gtk \\"
 echo "       grim slurp jq wl-clipboard libnotify polkit"
-echo "  (waybar, swaync, rofi, ghostty, hyprlock, hypridle, hyprpolkitagent, brightnessctl,"
+echo "  (waybar, swaync, rofi, ghostty, hyprlock, hypridle, polkit-gnome, cliphist, brightnessctl,"
 echo "   playerctl, wireplumber, nm-applet, blueman, bemoji ya los tienes)"
 echo
 echo "Validar:  sway --validate -c ~/.config/sway/config"

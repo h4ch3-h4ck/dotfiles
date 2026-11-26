@@ -47,7 +47,7 @@ make_link() {
 create_symlinks() {
     info "Creando symlinks...\n"
 
-    # Hyprland (carpeta entera: hyprland.conf/.lua, hyprlock*.conf, hypridle.conf)
+    # hypr/: hyprlock (pantalla de bloqueo de Sway) y su paleta de wallust
     make_link "$DOTFILES_DIR/hypr"                        "$HOME/.config/hypr"
 
     # Waybar
@@ -87,6 +87,9 @@ create_symlinks() {
         make_link "$f" "$HOME/.local/share/applications/$(basename "$f")"
     done
 
+    # Sway (config, bin/, hypridle.conf y portales): su propio instalador
+    bash "$DOTFILES_DIR/sway/install-sway.sh"
+
     echo ""
     ok "Symlinks creados."
 }
@@ -98,21 +101,27 @@ install_packages() {
     fi
     info "Instalando paquetes desde pkglist.txt..."
     sudo pacman -S --needed --noconfirm - < "$DOTFILES_DIR/pkglist.txt" || \
-        warn "Algunos paquetes son AUR. Instálalos con: yay -S <paquete>"
-    ok "Paquetes instalados."
+        warn "Algunos paquetes de pkglist.txt no se pudieron instalar."
+    ok "Paquetes de los repositorios instalados."
+
+    # AUR (pkglist-aur.txt): necesita yay
+    if [[ -f "$DOTFILES_DIR/pkglist-aur.txt" ]]; then
+        if command -v yay >/dev/null; then
+            info "Instalando paquetes de AUR desde pkglist-aur.txt..."
+            yay -S --needed - < "$DOTFILES_DIR/pkglist-aur.txt" || \
+                warn "Algunos paquetes de AUR fallaron (p. ej. packettracer necesita el .deb de Cisco a mano)."
+        else
+            warn "yay no está instalado: instala a mano los paquetes de pkglist-aur.txt."
+        fi
+    fi
 }
 
 # ── Config según GPU ──────────────────────────
 apply_gpu_config() {
     case "$GPU" in
         nvidia)
-            warn "Nvidia detectada — asegúrate de tener estas env vars en hyprland.conf:"
-            echo -e "
-    env = LIBVA_DRIVER_NAME,nvidia
-    env = XDG_SESSION_TYPE,wayland
-    env = GBM_BACKEND,nvidia-drm
-    env = __GLX_VENDOR_LIBRARY_NAME,nvidia
-    env = WLR_NO_HARDWARE_CURSORS,1\n"
+            warn "Nvidia detectada: arranca Sway con sway/bin/sway-launch (usa --unsupported-gpu"
+            warn "y deja la iGPU Intel como primaria). Revisa ahí las variables si es otro equipo."
             ;;
         amd|intel)
             ok "GPU ${GPU} — no se requiere config extra."
@@ -184,7 +193,7 @@ main() {
             err "Opción inválida."; exit 1 ;;
     esac
 
-    echo -e "${GREEN}${BOLD}\n  ¡Listo! Recarga Hyprland con: hyprctl reload${NC}\n"
+    echo -e "${GREEN}${BOLD}\n  ¡Listo! Recarga Sway con: swaymsg reload${NC}\n"
 }
 
 main

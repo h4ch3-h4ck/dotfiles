@@ -1,7 +1,7 @@
 #!/bin/bash
 # quick google search from rofi
 
-rofi_config="$HOME/.config/rofi/custom-rofi/config-search.rasi"
+rofi_config="$HOME/.config/rofi/symphony/custom-rofi/config-search.rasi"
 
 pkill -x rofi 2>/dev/null
 

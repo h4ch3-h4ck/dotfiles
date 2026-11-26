@@ -1,8 +1,11 @@
+bemoji
 google-chrome
 gtk-engine-murrine
 packettracer
 solarust
 ttf-victor-mono
+vagrant
+visual-studio-code-bin
 wallust
 webex-bin
 wlogout
